@@ -1,0 +1,26 @@
+{
+	"May-2025": {
+		"IsActive": false,
+		"Announcement": null
+	},
+	"March-2024": {
+		"IsActive": false,
+		"Announcement": null
+	},
+	"Test1": {
+		"IsActive": false,
+		"Announcement": null
+	},
+	"May Test": {
+		"IsActive": true,
+		"Announcement": null
+	},
+	"WS1 Test": {
+		"IsActive": true,
+		"Announcement": "Is this working?"
+	},
+	"WS Test 2": {
+		"IsActive": true,
+		"Announcement": "Lets see what happens"
+	}
+}
