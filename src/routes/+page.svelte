@@ -32,7 +32,8 @@
 	let selectedElection = '';
 
 	onMount(async () => {
-		const res = await fetch('/data/electionStatus.json');
+		// const res = await fetch('/data/electionStatus.json');
+		const res = await fetch('http://dev.wilco.org/sampleBallotAdmin/data/electionStatus.json');
 		const data = await res.json();
 		electionData = data;
 		elections = Object.keys(data).filter((key) => data[key]?.IsActive === true);
@@ -84,7 +85,7 @@
 	information is provided as a service to Williamson County and all information presented is based
 	solely on the names and addresses of registered voters. Voter information is updated daily. If you
 	feel there is any discrepancy in the provided information please feel free to contact us at (512)
-	943-1630. All fields are required.
+	943-1630. <!--All fields are required.-->
 </p>
 <p>
 	Voter registrations are effective 30 days after the submission of the application and may take 2-4
@@ -92,12 +93,12 @@
 	processed. If you have recently applied and do not see your name in the lookup, please check back
 	daily.
 </p>
-<AnnouncementSection {selectedElection} {electionData} />
 <select name="electionDropdown" id="electionDropdown" bind:value={selectedElection}>
 	{#each elections as election}
 		<option value={election}>{election}</option>
 	{/each}
 </select><br />
+<AnnouncementSection {selectedElection} {electionData} />
 <div class="voterID">
 	<input type="text" name="voterID" id="voterIDInput" /><br />
 	<label for="voterIDInput">Voter ID</label>
