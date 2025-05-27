@@ -21,14 +21,14 @@
 	const currentYear = new Date().getFullYear();
 	const startYear = currentYear - 18;
 	const endYear = currentYear - 104;
-	const years = [];
+	const years: number[] = [];
 
 	for (let year = startYear; year >= endYear; year--) {
 		years.push(year);
 	}
 
-	let electionData = {};
-	let elections = [];
+	let electionData: Record<string, { IsActive:boolean }> = {};
+	let elections: string[] = [];
 	let selectedElection = '';
 
 	onMount(async () => {
@@ -41,14 +41,14 @@
 
 	// Search Handling
 	async function handSearch() {
-		const voterID = document.getElementById('voterIDInput')?.value?.trim();
-		const lastName = document.getElementById('lastNameInput')?.value?.trim();
-		const firstName = document.getElementById('firstNameInput')?.value?.trim();
-		const dobMonth = document.getElementById('monthDropdown')?.value;
-		const dobDay = document.getElementById('dayDropdown')?.value;
-		const dobYear = document.getElementById('yearDropdown')?.value;
+		const voterID = (document.getElementById('voterIDInput') as HTMLInputElement)?.value?.trim();
+		const lastName = (document.getElementById('lastNameInput') as HTMLInputElement)?.value?.trim();
+		const firstName = (document.getElementById('firstNameInput') as HTMLInputElement)?.value?.trim();
+		const dobMonth = (document.getElementById('monthDropdown') as HTMLInputElement)?.value;
+		const dobDay = (document.getElementById('dayDropdown') as HTMLInputElement)?.value;
+		const dobYear = (document.getElementById('yearDropdown') as HTMLInputElement)?.value;
 
-		const dob = `${dobYear}-${string(dobMonth).padStart(2, '0')} -${String(dobDay).padStart(2, '0')}`;
+		const dob = `${dobYear}-${String(dobMonth).padStart(2, '0')} -${String(dobDay).padStart(2, '0')}`;
 
 		const payload = voterID
 			? { voterID }
