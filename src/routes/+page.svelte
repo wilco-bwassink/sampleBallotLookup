@@ -1,6 +1,7 @@
 <script lang="ts">
 	import { onMount } from 'svelte';
 	import AnnouncementSection from '$lib/components/AnnouncementSection.svelte';
+	// import { getVoterDetails } from '$lib/server/db';
 
 	const months = [
 		'January',
@@ -30,10 +31,11 @@
 	let electionData: Record<string, { IsActive:boolean }> = {};
 	let elections: string[] = [];
 	let selectedElection = '';
+	let searchResults: Array<{ IDNUMBER: string; NAME: string; ADDRESS: string }> = [];
 
 	onMount(async () => {
-		// const res = await fetch('/data/electionStatus.json');
-		const res = await fetch('http://dev.wilco.org/sampleBallotAdmin/data/electionStatus.json');
+		const res = await fetch('/api/proxy-election-data');
+		// const res = await fetch('http://dev.wilco.org/sampleBallotAdmin/data/electionStatus.json');
 		const data = await res.json();
 		electionData = data;
 		elections = Object.keys(data).filter((key) => data[key]?.IsActive === true);
@@ -41,26 +43,28 @@
 
 	// Search Handling
 	async function handSearch() {
-		const voterID = (document.getElementById('voterIDInput') as HTMLInputElement)?.value?.trim();
-		const lastName = (document.getElementById('lastNameInput') as HTMLInputElement)?.value?.trim();
-		const firstName = (document.getElementById('firstNameInput') as HTMLInputElement)?.value?.trim();
-		const dobMonth = (document.getElementById('monthDropdown') as HTMLInputElement)?.value;
-		const dobDay = (document.getElementById('dayDropdown') as HTMLInputElement)?.value;
-		const dobYear = (document.getElementById('yearDropdown') as HTMLInputElement)?.value;
+	const voterID = (document.getElementById('voterIDInput') as HTMLInputElement)?.value?.trim();
+	const lastName = (document.getElementById('lastNameInput') as HTMLInputElement)?.value?.trim();
+	const firstName = (document.getElementById('firstNameInput') as HTMLInputElement)?.value?.trim();
+	const dobMonth = (document.getElementById('monthDropdown') as HTMLSelectElement)?.value;
+	const dobDay = (document.getElementById('dayDropdown') as HTMLSelectElement)?.value;
+	const dobYear = (document.getElementById('yearDropdown') as HTMLSelectElement)?.value;
 
-		const dob = `${dobYear}-${String(dobMonth).padStart(2, '0')} -${String(dobDay).padStart(2, '0')}`;
+	let payload: Record<string, string> | null = null;
 
-		const payload = voterID
-			? { voterID }
-			: firstName && lastName && dobYear && dobMonth && dobDay
-				? { firstName, lastName, dob }
-				: null;
+	if (voterID) {
+		payload = { voterID };
+	} else if (firstName && lastName && dobYear && dobMonth && dobDay) {
+		const dob = `${dobYear}-${String(dobMonth).padStart(2, '0')}-${String(dobDay).padStart(2, '0')}`;
+		payload = { firstName, lastName, dob };
+	}
 
-		if (!payload) {
-			alert('Please provide either your Voter ID or full Name and Date of Birth.');
-			return;
-		}
+	if (!payload) {
+		alert('Please provide either your Voter ID or full Name and Date of Birth.');
+		return;
+	}
 
+	try {
 		const res = await fetch('/api/voter-search', {
 			method: 'POST',
 			headers: { 'Content-Type': 'application/json' },
@@ -68,8 +72,36 @@
 		});
 
 		const data = await res.json();
-		console.log(data);
+		searchResults = data;
+
+		// TO DO: handle results
+		console.log('Search results:', data);
+	} catch (err) {
+		console.error('Search failed:', err);
+		alert('Search request failed. Please try again.');
 	}
+
+}
+
+
+	onMount(async () => {
+		try {
+			const res = await fetch('/api/proxy-election-data');
+			const data = await res.json();
+
+			if ('error' in data) {
+				console.error('Error from API', data.error);
+				alert('Failed to load election data. Please try again later.');
+				return;
+			}
+
+			electionData = data;
+			elections = Object.keys(data).filter((key) => data[key]?.IsActive === true);
+		} catch (err) {
+			console.error('Fetch error', err);
+			alert('Unable to conect to the election server.')
+		}
+	})
 </script>
 
 <header>
@@ -131,7 +163,7 @@
 		{/each}
 	</select>
 </div>
-<button class="button button__blue">Search</button>
+<button class="button button__blue" on:click={handSearch}>Search</button>
 <div id="voterInfo"></div>
 <h3>
 	After you click the "Search" button, a list of matching names will appear below. You MUST click on
@@ -141,6 +173,20 @@
 	<a href="\#">Start a New Search</a>
 	<a href="http://www.wilcotx.gov/elections">Williamson County Elections</a>
 </div>
+
+{#if searchResults.length > 0}
+<section id="searchResults">
+	<h2>Matching Voters</h2>
+	<ul>
+		{#each searchResults as voter}
+		<li>
+			<p>{voter.NAME}</p>
+			<p>{voter.ADDRESS}</p>
+		</li>
+		{/each}
+	</ul>
+</section>
+{/if}
 
 <style>
 	.voterName {
@@ -158,5 +204,18 @@
 
 	.button {
 		margin-top: 1em;
+	}
+
+	#searchResults {
+		margin-top: 2em;
+
+		ul {
+			list-style-type: none;
+			padding: 0;
+		}
+
+		& li {
+			margin-bottom: 1em;
+		}
 	}
 </style>
