@@ -3,6 +3,20 @@
 	import AnnouncementSection from '$lib/components/AnnouncementSection.svelte';
 	// import { getVoterDetails } from '$lib/server/db';
 
+	type MonthName = 
+	| 'January'
+	| 'February'
+	| 'March'
+	| 'April'
+	| 'May'
+	| 'June'
+	| 'July'
+	| 'August'
+	| 'September'
+	| 'October'
+	| 'November'
+	| 'December';
+
 	const months = [
 		'January',
 		'February',
@@ -18,8 +32,8 @@
 		'December'
 	];
 
-	function getMonthNumber(monthName) {
-		const monthMap = {
+	function getMonthNumber(monthName: string): number | null {
+		const monthMap: Record<MonthName, number> = {
 			'January': 1,
 			'February': 2,
 			'March': 3,
@@ -28,13 +42,17 @@
 			'June': 6,
 			'July': 7,
 			'August': 9,
-			'Semptember': 8,
+			'September': 8,
 			'October': 10,
 			'November': 11,
 			'December': 12,
 		};
 
-		return monthMap[monthName] || null;
+		if (monthName in monthMap) {
+			return monthMap [monthName as MonthName];
+		}
+
+		return null;
 	}
 
 	const days = Array.from({ length: 31 }, (_, i) => i + 1);
