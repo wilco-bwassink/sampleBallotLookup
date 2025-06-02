@@ -18,6 +18,25 @@
 		'December'
 	];
 
+	function getMonthNumber(monthName) {
+		const monthMap = {
+			'January': 1,
+			'February': 2,
+			'March': 3,
+			'April': 4,
+			'May': 5,
+			'June': 6,
+			'July': 7,
+			'August': 9,
+			'Semptember': 8,
+			'October': 10,
+			'November': 11,
+			'December': 12,
+		};
+
+		return monthMap[monthName] || null;
+	}
+
 	const days = Array.from({ length: 31 }, (_, i) => i + 1);
 	const currentYear = new Date().getFullYear();
 	const startYear = currentYear - 18;
@@ -55,7 +74,14 @@
 	if (voterID) {
 		payload = { voterID };
 	} else if (firstName && lastName && dobYear && dobMonth && dobDay) {
-		const dob = `${dobYear}-${String(dobMonth).padStart(2, '0')}-${String(dobDay).padStart(2, '0')}`;
+		const monthNumber = getMonthNumber(dobMonth)
+
+		if (!monthNumber) {
+			alert('Please select a valid month.');
+			return;
+		}
+
+		const dob = `${dobYear}-${String(monthNumber).padStart(2, '0')}-${String(dobDay).padStart(2, '0')}`;
 		payload = { firstName, lastName, dob };
 	}
 
@@ -72,7 +98,13 @@
 		});
 
 		const data = await res.json();
-		searchResults = data;
+
+		if (data.error) {
+			alert (data.error);
+			return;
+		}
+
+		searchResults = data.voters || [];
 
 		// TO DO: handle results
 		console.log('Search results:', data);
