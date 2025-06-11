@@ -21,7 +21,22 @@ const { voterID, firstName, lastName, dob, electionID } = body;
 		console.log('Incoming request:', { voterID, firstName, lastName, dob, electionID });
 
 		if (voterID) {
-			return json({ error: 'Voter ID search not yet implemented' }, { status: 501 });
+			try {
+				const voterDetails = await getVoterDetails(voterID);
+				console.log('Voter details result:', voterDetails);
+				// return json({ voters: voterDetails });
+
+				const voters = voterDetails.map(voter => ({
+					IDNUMBER: voter.VoterID,
+					NAME: voter.FullName,
+					ADDRESS: voter.Address
+				}));
+
+				return json({ voters });
+			} catch (err) {
+				console.error('Error fetching voter details by Voter ID:', err);
+				return json({ error: 'Failed to retrieve voter Details' }, { status: 500 });
+			}
 		}
 
 		if (firstName && lastName && dob) {

@@ -90,7 +90,7 @@
 	let payload: Record<string, string> | null = null;
 
 	if (voterID) {
-		payload = { voterID };
+		payload = { voterID, electionID: selectedElection };
 	} else if (firstName && lastName && dobYear && dobMonth && dobDay) {
 		const monthNumber = getMonthNumber(dobMonth)
 
@@ -100,7 +100,7 @@
 		}
 
 		const dob = `${dobYear}-${String(monthNumber).padStart(2, '0')}-${String(dobDay).padStart(2, '0')}`;
-		payload = { firstName, lastName, dob };
+		payload = { firstName, lastName, dob, electionID: selectedElection };
 	}
 
 	if (!payload) {
@@ -152,6 +152,8 @@
 			alert('Unable to conect to the election server.')
 		}
 	})
+
+	
 </script>
 
 <header>
@@ -229,8 +231,8 @@
 	<h2>Matching Voters</h2>
 	<ul>
 		{#each searchResults as voter}
-		<li>
-			<p>{voter.NAME}</p>
+		<li class="voterDetails">
+			<p><a href="/{voter.IDNUMBER}?electionID={selectedElection}">{voter.NAME}</a></p>
 			<p>{voter.ADDRESS}</p>
 		</li>
 		{/each}
@@ -267,5 +269,10 @@
 		& li {
 			margin-bottom: 1em;
 		}
+	}
+
+	.voterDetails {
+		display: flex;
+		gap: 1em;
 	}
 </style>

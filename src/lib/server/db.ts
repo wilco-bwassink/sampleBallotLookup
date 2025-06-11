@@ -28,6 +28,7 @@ export async function getVoterDetails(id: string, electionID: string) {
 	const request = pool.request();
 	const result = await request
 		.input('ID', sql.NVarChar, id)
+		.input('ElectionID', sql.NVarChar, electionID)
 		.execute('Elections.GetVoterDetailsWithLinks');
 	return result.recordsets;
 }
