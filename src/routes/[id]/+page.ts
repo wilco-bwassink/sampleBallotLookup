@@ -19,7 +19,9 @@ export const load: PageLoad = async ({ params, url, fetch }) => {
     console.log('Loaded voter data:', data)
     return {
         voterInfo: data.voterInfo,
-        electedOfficials: data.electedOfficials,
+        federalOfficials: data.federalOfficials,
+        stateOfficials: data.stateOfficials,
+        countyOfficials: data.countyOfficials,
         ballotStyle: data.ballotStyle
     };
 };

@@ -14,10 +14,12 @@ export const POST: RequestHandler = async ({ request }) => {
 
         const voterInfo = recordsets[0] && recordsets [0][0] ? recordsets[0][0] : null;
 
-        const electedOfficials = recordsets[1] || [];
-        const ballotStyle = recordsets[2] && recordsets[2][0]?.BallotStyle || '';
+        const federalOfficials = recordsets[1] || [];
+        const stateOfficials = recordsets[2] || [];
+        const countyOfficials = recordsets[3] || [];
+        const ballotStyle = recordsets[4] && recordsets[4][0]?.BallotStyle || '';
 
-        return json({ voterInfo, electedOfficials, ballotStyle })
+        return json({ voterInfo, federalOfficials, stateOfficials, countyOfficials, ballotStyle })
     } catch (err) {
         console.error('Error in /api/voter-details:', err);
         return json({ error: 'Failed to retriee voter details' }, { status: 500 });

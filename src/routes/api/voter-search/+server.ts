@@ -20,24 +20,32 @@ const { voterID, firstName, lastName, dob, electionID } = body;
 
 		console.log('Incoming request:', { voterID, firstName, lastName, dob, electionID });
 
-		if (voterID) {
-			try {
-				const voterDetails = await getVoterDetails(voterID);
-				console.log('Voter details result:', voterDetails);
-				// return json({ voters: voterDetails });
+				if (voterID) {
+					try {
+						const voterDetails = await getVoterDetails(voterID);
+						console.log('Voter details result:', voterDetails);
 
-				const voters = voterDetails.map(voter => ({
-					IDNUMBER: voter.VoterID,
-					NAME: voter.FullName,
-					ADDRESS: voter.Address
-				}));
+						// Ensure the first recordset has at least one record
+						const voter = voterDetails?.[0]?.[0];
+						if (!voter) {
+							return json({ error: 'Voter not found' }, { status: 404 });
+						}
 
-				return json({ voters });
-			} catch (err) {
-				console.error('Error fetching voter details by Voter ID:', err);
-				return json({ error: 'Failed to retrieve voter Details' }, { status: 500 });
-			}
-		}
+						// Match structure expected by frontend
+						const voters = [
+							{
+								IDNUMBER: voter.STATEVUID,
+								NAME: voter.NAME,
+								ADDRESS: voter.ADDRESS
+							}
+						];
+
+						return json({ voters });
+					} catch (err) {
+						console.error('Error fetching voter details by Voter ID:', err);
+						return json({ error: 'Failed to retrieve voter Details' }, { status: 500 });
+					}
+				}
 
 		if (firstName && lastName && dob) {
 			const voters = await getVoterByNameAndDob(firstName, lastName, dob);

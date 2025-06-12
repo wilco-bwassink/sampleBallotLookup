@@ -232,8 +232,8 @@
 	<ul>
 		{#each searchResults as voter}
 		<li class="voterDetails">
-			<p><a href="/{voter.IDNUMBER}?electionID={selectedElection}">{voter.NAME}</a></p>
-			<p>{voter.ADDRESS}</p>
+			<p class="voterInfo"><a href="/{voter.IDNUMBER}?electionID={selectedElection}" target="_blank">{voter.NAME}</a></p>
+			<p class="voterInfo">{voter.ADDRESS}</p>
 		</li>
 		{/each}
 	</ul>
@@ -244,6 +244,9 @@
 	.voterName {
 		display: flex;
 		gap: 1em;
+	}
+	.voterInfo {
+		text-transform: capitalize;
 	}
 	.bottomLinks {
 		display: flex;
