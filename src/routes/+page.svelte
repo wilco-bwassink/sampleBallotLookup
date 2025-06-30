@@ -71,7 +71,7 @@
 	let searchResults: Array<{ IDNUMBER: string; NAME: string; ADDRESS: string }> = [];
 
 	onMount(async () => {
-		const res = await fetch('/api/proxy-election-data');
+		const res = await fetch('http://dev.wilco.org/voterlookup/api/proxy-election-data');
 		// const res = await fetch('http://dev.wilco.org/sampleBallotAdmin/data/electionStatus.json');
 		const data = await res.json();
 		electionData = data;
@@ -109,7 +109,7 @@
 	}
 
 	try {
-		const res = await fetch('/api/voter-search', {
+		const res = await fetch('http://dev.wilco.org/voterlookup/api/voter-search', {
 			method: 'POST',
 			headers: { 'Content-Type': 'application/json' },
 			body: JSON.stringify(payload)
@@ -136,7 +136,7 @@
 
 	onMount(async () => {
 		try {
-			const res = await fetch('/api/proxy-election-data');
+			const res = await fetch('http://dev.wilco.org/voterlookup/api/proxy-election-data');
 			const data = await res.json();
 
 			if ('error' in data) {
@@ -232,7 +232,7 @@
 	<ul>
 		{#each searchResults as voter}
 		<li class="voterDetails">
-			<p class="voterInfo"><a href="/{voter.IDNUMBER}?electionID={selectedElection}" target="_blank">{voter.NAME}</a></p>
+			<p class="voterInfo"><a href="http://dev.wilco.org/voterlookup/{voter.IDNUMBER}?electionID={selectedElection}" target="_blank">{voter.NAME}</a></p>
 			<p class="voterInfo">{voter.ADDRESS}</p>
 		</li>
 		{/each}

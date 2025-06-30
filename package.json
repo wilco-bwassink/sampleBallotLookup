@@ -15,6 +15,7 @@
 	},
 	"devDependencies": {
 		"@sveltejs/adapter-auto": "^6.0.0",
+		"@sveltejs/adapter-node": "^5.2.12",
 		"@sveltejs/kit": "^2.16.0",
 		"@sveltejs/vite-plugin-svelte": "^5.0.0",
 		"@types/dotenv": "^8.2.3",
@@ -37,6 +38,7 @@
 	"dependencies": {
 		"env": "^0.0.2",
 		"esrap": "1.4.4",
-		"mssql": "^11.0.1"
+		"mssql": "^11.0.1",
+		"pm2": "^6.0.8"
 	}
 }

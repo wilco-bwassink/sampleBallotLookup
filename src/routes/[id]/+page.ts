@@ -4,7 +4,7 @@ export const load: PageLoad = async ({ params, url, fetch }) => {
     const voterID = params.id;
     const electionID = url.searchParams.get('electionID') ?? '';
 
-    const res = await fetch('/api/voter-details', {
+    const res = await fetch('http://dev.wilco.org/voterlookup/api/voter-details', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ voterID, electionID })
