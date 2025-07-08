@@ -3,9 +3,9 @@ import { json } from '@sveltejs/kit';
 import { getVoterDetails } from '$lib/server/db';
 
 export const POST: RequestHandler = async ({ request }) => {
+    console.log('QPI: Route hit, request received')
     try {
         const { voterID, electionID } = await request.json();
-
         if (!voterID) {
             return json({ error: 'No Voter Found' }, { status: 404 });
         }
@@ -18,10 +18,11 @@ export const POST: RequestHandler = async ({ request }) => {
         const stateOfficials = recordsets[2] || [];
         const countyOfficials = recordsets[3] || [];
         const ballotStyle = recordsets[4] && recordsets[4][0]?.BallotStyle || '';
-
+        console.log('API: Success returning result')
         return json({ voterInfo, federalOfficials, stateOfficials, countyOfficials, ballotStyle })
     } catch (err) {
+        console.log('API: Error returning result')
         console.error('Error in /api/voter-details:', err);
-        return json({ error: 'Failed to retriee voter details' }, { status: 500 });
+        return json({ error: 'Failed to retrieve voter details' }, { status: 500 });
     }
 };
