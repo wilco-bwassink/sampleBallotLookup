@@ -8,7 +8,7 @@ const {
     ballotStyle 
 } = data;
 
-    console.log('Rednering data', data);
+    // console.log('Rendering data', data);
 
 </script>
 <div class="voterContainer">
@@ -22,8 +22,8 @@ const {
         </section>
         <section>
         <h2>Voting Information</h2>
-        <div>Ballot Style: <a href="{ballotStyle}">{ballotStyle}</a></div>
-        <div>Sample Ballot: <a href="{ballotStyle}">Web Ballot</a></div>
+        <div><strong>Ballot Style:</strong> <a href="{ballotStyle}">{ballotStyle}</a></div>
+        <div><strong>Sample Ballot:</strong> <a href="{ballotStyle}">Web Ballot</a></div>
         <div><strong>Voting Precinct:</strong> {voterInfo.PRECINCT}</div>
         <div><strong>Effective Date:</strong> {voterInfo.EFFECTIVE_DATE}</div>
         <div><strong>Status:</strong> {voterInfo.STATUS}</div>
@@ -34,7 +34,7 @@ const {
 <section class="electedOfficialSection">
     <details name="electedOfficials">
         <summary>Federal Elected Officials</summary>
-        <ul>
+        <ul class="feds">
             {#each federalOfficials as official}
             <li>
                 <div><strong>Description:</strong> {official.Description}</div>
@@ -53,7 +53,7 @@ const {
 <section class="electedOfficialSection">
     <details name="electedOfficials">
         <summary>State Elected Officials</summary>
-        <ul>
+        <ul class="state">
             {#each stateOfficials as official}
             <li>
                 <div><strong>Description:</strong> {official.Description}</div>
@@ -72,7 +72,7 @@ const {
 <section class="electedOfficialSection">
     <details name="electedOfficials">
         <summary>County Elected Officials</summary>
-        <ul>
+        <ul class="county">
             {#each countyOfficials as official}
             <li>
                 <div><strong>Description:</strong> {official.Description}</div>
@@ -101,15 +101,32 @@ const {
         /* text-transform: capitalize; */
     }
     strong {
-        font-weight: bolder;
+        font-weight: 800;
     }
-    ul {
+    /* ul {
         display: grid;
         grid: auto-flow / 1fr 1fr 1fr;
         gap: 1em;
         max-width: 90vw;
+    } */
+     ul {
+        display: flex;
+        gap: 1em;
+        width: 90vw;
+        flex-direction: column;
+        flex-wrap: wrap;
+        align-content: flex-start;
+     }
 
+     .feds {
+        max-height: 320px;
+     }
 
+    .state {
+        max-height: 960px;
+    }
+    .county {
+        max-height: 340px;
     }
     li {
         list-style: none;

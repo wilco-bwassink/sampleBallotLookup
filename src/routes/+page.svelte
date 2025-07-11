@@ -278,4 +278,11 @@
 		display: flex;
 		gap: 1em;
 	}
+
+	input {
+		padding: 0.5em;
+		border: 1px solid #ccc;
+		border-radius: 5px;
+		font-size: 1em;
+	}
 </style>

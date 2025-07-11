@@ -3,7 +3,7 @@ import { json } from '@sveltejs/kit';
 import { getVoterDetails } from '$lib/server/db';
 
 export const POST: RequestHandler = async ({ request }) => {
-    console.log('QPI: Route hit, request received')
+    console.log('API: Route hit, request received')
     try {
         const { voterID, electionID } = await request.json();
         if (!voterID) {
