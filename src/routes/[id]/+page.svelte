@@ -124,6 +124,7 @@ const {
 
     .state {
         max-height: 960px;
+        overflow: hidden;
     }
     .county {
         max-height: 340px;

@@ -177,39 +177,43 @@
 	processed. If you have recently applied and do not see your name in the lookup, please check back
 	daily.
 </p>
-<select name="electionDropdown" id="electionDropdown" bind:value={selectedElection}>
+<select name="electionDropdown" id="electionDropdown" bind:value={selectedElection} title="Election Drop-down" required>
+	<option value="">Select an Election</option>
 	{#each elections as election}
 		<option value={election}>{election}</option>
 	{/each}
 </select><br />
 <AnnouncementSection {selectedElection} {electionData} />
+<h4>Voter ID:</h4>
 <div class="voterID">
-	<input type="text" name="voterID" id="voterIDInput" /><br />
+	<input type="text" name="voterID" id="voterIDInput" title="Voter ID Input"/><br />
 	<label for="voterIDInput">Voter ID</label>
 </div>
 <div class="or">or</div>
+<h4>Name:</h4>
 <div class="voterName">
 	<div class="lastName">
-		<input type="text" name="lastName" id="lastNameInput" /><br />
+		<input type="text" name="lastName" id="lastNameInput" title="Last Name Input"/><br />
 		<label for="lastNameInput">Last Name</label>
 	</div>
 	<div class="firstName">
-		<input type="text" name="firstName" id="firstNameInput" /><br />
+		<input type="text" name="firstName" id="firstNameInput" title="First Name Input"/><br />
 		<label for="firstNameInput">First Name</label>
 	</div>
 </div>
+<h4>Date of Birth:</h4>
 <div class="voterDOB">
-	<select name="monthDropdown" id="monthDropdown">
+	<select name="monthDropdown" id="monthDropdown" title="Voter Birth Month Drop-down">
 		{#each months as month}
 			<option value={month}>{month}</option>
 		{/each}
 	</select>
-	<select name="dayDropdown" id="dayDropdown">
+	<select name="dayDropdown" id="dayDropdown" title="Voter Birth Day Drop-down">
 		{#each days as day}
 			<option value={day}>{day}</option>
 		{/each}
 	</select>
-	<select id="yearDropdown" name="yearDropdown">
+	<select id="yearDropdown" name="yearDropdown" title="Voter Birth Year Drop-down">
 		{#each years as year}
 			<option value={year}>{year}</option>
 		{/each}
@@ -241,6 +245,9 @@
 {/if}
 
 <style>
+	#electionDropdown {
+		min-width: 15em;
+	}
 	.voterName {
 		display: flex;
 		gap: 1em;
@@ -255,10 +262,12 @@
 
 	.or {
 		font-weight: bold;
+		margin-top: 1em;
 	}
 
 	.button {
 		margin-top: 1em;
+		padding: .3em;
 	}
 
 	#searchResults {
@@ -284,5 +293,9 @@
 		border: 1px solid #ccc;
 		border-radius: 5px;
 		font-size: 1em;
+		min-width: 14em;
+	}
+	select:focus-within {
+		border: 1px #000 solid;
 	}
 </style>
