@@ -164,19 +164,20 @@
 	/>
 	<h1>Elections Ballot Lookup</h1>
 </header>
-<p>
+<p>Please search by Name and Date of Birth or Voter ID (VUID) to find your voter information.</p>
+<!-- <p>
 	Please submit your last & first name and your date of birth to find your voter information. This
 	information is provided as a service to Williamson County and all information presented is based
 	solely on the names and addresses of registered voters. Voter information is updated daily. If you
 	feel there is any discrepancy in the provided information please feel free to contact us at (512)
 	943-1630. <!--All fields are required.-->
-</p>
+<!-- </p>
 <p>
 	Voter registrations are effective 30 days after the submission of the application and may take 2-4
 	weeks to be fully processed. This lookup is updated daily to reflect applications that are fully
 	processed. If you have recently applied and do not see your name in the lookup, please check back
 	daily.
-</p>
+</p> -->
 <select name="electionDropdown" id="electionDropdown" bind:value={selectedElection} title="Election Drop-down" required>
 	<option value="">Select an Election</option>
 	{#each elections as election}
@@ -184,21 +185,17 @@
 	{/each}
 </select><br />
 <AnnouncementSection {selectedElection} {electionData} />
-<h4>Voter ID:</h4>
-<div class="voterID">
-	<input type="text" name="voterID" id="voterIDInput" title="Voter ID Input"/><br />
-	<label for="voterIDInput">Voter ID</label>
-</div>
-<div class="or">or</div>
+<div class="searchSection">
+<div id="nameDOBSection">
 <h4>Name:</h4>
 <div class="voterName">
-	<div class="lastName">
-		<input type="text" name="lastName" id="lastNameInput" title="Last Name Input"/><br />
-		<label for="lastNameInput">Last Name</label>
-	</div>
 	<div class="firstName">
 		<input type="text" name="firstName" id="firstNameInput" title="First Name Input"/><br />
 		<label for="firstNameInput">First Name</label>
+	</div>
+	<div class="lastName">
+		<input type="text" name="lastName" id="lastNameInput" title="Last Name Input"/><br />
+		<label for="lastNameInput">Last Name</label>
 	</div>
 </div>
 <h4>Date of Birth:</h4>
@@ -218,6 +215,16 @@
 			<option value={year}>{year}</option>
 		{/each}
 	</select>
+</div>
+</div>
+<div class="or">or</div>
+<div id="voterIDSection">
+<h4>Voter ID:</h4>
+<div class="voterID">
+	<input type="text" name="voterID" id="voterIDInput" title="Voter ID Input"/><br />
+	<label for="voterIDInput">Voter ID (VUID)</label>
+</div>
+</div>
 </div>
 <button class="button button__blue" on:click={handSearch}>Search</button>
 <div id="voterInfo"></div>
@@ -244,9 +251,18 @@
 </section>
 {/if}
 
+<p>Please search by Name and Date of Birth or Voter ID (VUID) to find your voter information.</p>
+ 
+<p>This is provided as a service to Williamson County and all information presented is based solely on the names and addresses of registered voters. If you feel there is any discrepancy in the provided information please email VoterRegistration@wilcotx.gov or call 512-943-1630.
+Voter registrations are effective 30 days after the submission of the application. If you have recently applied and do not see your name in the lookup, please check back.</p>
+
 <style>
 	#electionDropdown {
 		min-width: 15em;
+	}
+	.searchSection {
+		display: flex;
+		justify-content: space-around;
 	}
 	.voterName {
 		display: flex;
