@@ -253,8 +253,10 @@
 
 <p>Please search by Name and Date of Birth or Voter ID (VUID) to find your voter information.</p>
  
-<p>This is provided as a service to Williamson County and all information presented is based solely on the names and addresses of registered voters. If you feel there is any discrepancy in the provided information please email VoterRegistration@wilcotx.gov or call 512-943-1630.
+<p>This is provided as a service to Williamson County and all information presented is based solely on the names and addresses of registered voters. If you feel there is any discrepancy in the provided information please email <a href="mailto:VoterRegistration@wilcotx.gov">VoterRegistration@wilcotx.gov</a> or call 512-943-1630.
 Voter registrations are effective 30 days after the submission of the application. If you have recently applied and do not see your name in the lookup, please check back.</p>
+<p>Voter registrations are effective 30 days after the submission of the application. If you have recently applied and do not see your name in the lookup, please check back.</p>
+<p>If you are currently registered to vote in Williamson County, and have moved within the county or have changed your name, please make sure to update your voter registration information.</p>
 
 <style>
 	#electionDropdown {

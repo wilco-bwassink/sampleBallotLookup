@@ -15,18 +15,27 @@ const {
 <div class="voterInfo">
 {#if voterInfo}
     <section class="voterDetailsSection">
-        <h2>Personal Information</h2>
+        <h2>Voter Information</h2>
         <div><strong>Name:</strong>  {voterInfo.NAME}</div>
         <div><strong>TX Voter ID (VUID):</strong> {voterInfo.STATEVUID}</div>
-        <div><strong>Address:</strong> {voterInfo.ADDRESS}</div>
-        </section>
-        <section>
-        <h2>Voting Information</h2>
-        <div><strong>Ballot Style:</strong> <a href="{ballotStyle}">{ballotStyle}</a></div>
-        <div><strong>Sample Ballot:</strong> <a href="{ballotStyle}">Web Ballot</a></div>
         <div><strong>Voting Precinct:</strong> {voterInfo.PRECINCT}</div>
-        <div><strong>Effective Date:</strong> {voterInfo.EFFECTIVE_DATE}</div>
         <div><strong>Status:</strong> {voterInfo.STATUS}</div>
+        <div><strong>Address:</strong> {voterInfo.ADDRESS}
+        <p><a href="https://www.wilcotx.gov/444/Name-Address-or-DPS-Change">Have you moved?</a></p>
+        </div>
+        </section>
+        <section id="non-primary_election">
+        <h2>Sample Ballot</h2>
+        <div><strong>PDF Sample Ballot Ballot:</strong> <a href="{ballotStyle}">{ballotStyle}</a></div>
+        <div><strong>Interactive Sample Ballot:</strong> <a href="{ballotStyle}">Web Ballot</a></div>
+        <!-- <div><strong>Effective Date:</strong> {voterInfo.EFFECTIVE_DATE}</div> -->
+    </section>
+    <section id="primary_election">
+        <h2>Sample Ballot</h2>
+        <div><strong>PDF Democrat Sample Ballot Ballot:</strong> <a href="{ballotStyle}">{ballotStyle}</a></div>
+        <div><strong>Interactive Democrat Sample Ballot:</strong> <a href="{ballotStyle}">Web Ballot</a></div>
+        <div><strong>PDF Republican Sample Ballot Ballot:</strong> <a href="{ballotStyle}">{ballotStyle}</a></div>
+        <div><strong>Interactive Republican Sample Ballot:</strong> <a href="{ballotStyle}">Web Ballot</a></div>
     </section>
 {/if}
 </div>
@@ -120,14 +129,23 @@ const {
 
      .feds {
         max-height: 320px;
+        overflow: scroll;
      }
 
     .state {
         max-height: 960px;
-        overflow: hidden;
+        overflow: scroll;
+
+        li:nth-child(even) {
+            background-color: var(--wc-tan-60);/**#e7e5e2;**/
+        }
     }
     .county {
-        max-height: 340px;
+        max-height: 400px;
+        /* overflow: scroll; */
+        li:nth-child(even) {
+            background-color: var(--wc-tan-60);/**#e7e5e2;**/
+        }
     }
     li {
         list-style: none;
