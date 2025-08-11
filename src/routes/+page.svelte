@@ -1,6 +1,8 @@
 <script lang="ts">
 	import { onMount } from 'svelte';
 	import AnnouncementSection from '$lib/components/AnnouncementSection.svelte';
+	let electionStatus = [];
+	let settings = { EnglishText: '', SpanishText: '', ShowSampleBallot: false };
 	// import { getVoterDetails } from '$lib/server/db';
 
 	type MonthName = 
@@ -71,12 +73,19 @@
 	let searchResults: Array<{ IDNUMBER: string; NAME: string; ADDRESS: string }> = [];
 
 	onMount(async () => {
-		const res = await fetch('http://dev.wilco.org/voterlookup/api/proxy-election-data');
-		// const res = await fetch('http://dev.wilco.org/sampleBallotAdmin/data/electionStatus.json');
-		const data = await res.json();
-		electionData = data;
-		elections = Object.keys(data).filter((key) => data[key]?.IsActive === true);
+		try {
+		const [eRes, sRes] = await Promise.all([
+		fetch('http://dev.wilco.org/voterlookup/api/proxy-election-data'),
+		fetch('http://dev.wilco.org/voterlookup/api/proxy-admin-settings')
+		]);
+		electionStatus = await eRes.json();
+		settings = await sRes.json();
+		} catch (err) {
+			console.error('Data load error: ', err);
+		}
 	});
+
+	
 
 	// Search Handling
 	async function handSearch() {
@@ -178,6 +187,7 @@
 	processed. If you have recently applied and do not see your name in the lookup, please check back
 	daily.
 </p> -->
+{#if settings.ShowSampleBallot}
 <select name="electionDropdown" id="electionDropdown" bind:value={selectedElection} title="Election Drop-down" required>
 	<option value="">Select an Election</option>
 	{#each elections as election}
@@ -185,6 +195,7 @@
 	{/each}
 </select><br />
 <AnnouncementSection {selectedElection} {electionData} />
+{/if}
 <div class="searchSection">
 <div id="nameDOBSection">
 <h4>Name:</h4>
@@ -230,7 +241,7 @@
 <div id="voterInfo"></div>
 <h3>
 	After you click the "Search" button, a list of matching names will appear below. You MUST click on
-	your name to view your voter information and sample Ballot.
+	your name to view your voter information and sample Ballot (if they're currently available).
 </h3>
 <div class="bottomLinks">
 	<a href="\#">Start a New Search</a>
@@ -250,13 +261,16 @@
 	</ul>
 </section>
 {/if}
-
-<p>Please search by Name and Date of Birth or Voter ID (VUID) to find your voter information.</p>
+<section>
+<div class="adminInfo englishInfo">{@html settings.EnglishText.replace(/\r\n/g,'<br><br>')}</div>
+<div class="adminInfo spanishInfo">{@html settings.SpanishText.replace(/\r\n/g,'<br><br>')}</div>
+</section>
+<!-- <p>Please search by Name and Date of Birth or Voter ID (VUID) to find your voter information.</p>
  
 <p>This is provided as a service to Williamson County and all information presented is based solely on the names and addresses of registered voters. If you feel there is any discrepancy in the provided information please email <a href="mailto:VoterRegistration@wilcotx.gov">VoterRegistration@wilcotx.gov</a> or call 512-943-1630.
 Voter registrations are effective 30 days after the submission of the application. If you have recently applied and do not see your name in the lookup, please check back.</p>
 <p>Voter registrations are effective 30 days after the submission of the application. If you have recently applied and do not see your name in the lookup, please check back.</p>
-<p>If you are currently registered to vote in Williamson County, and have moved within the county or have changed your name, please make sure to update your voter registration information.</p>
+<p>If you are currently registered to vote in Williamson County, and have moved within the county or have changed your name, please make sure to update your voter registration information.</p> -->
 
 <style>
 	#electionDropdown {
