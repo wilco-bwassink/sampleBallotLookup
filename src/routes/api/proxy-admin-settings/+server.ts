@@ -5,7 +5,7 @@ export async function GET() {
         const res = await fetch ('http://dev.wilco.org/sampleBallotAdmin/data/sampleBallotSettings.json');
         if (!res.ok) {
             console.error(`Fetch failed with status ${res.status}`);
-            return json([ error: 'Remote server responded with error' ], { status: res.status });
+            return json({ error: 'Remote server responded with error' }, { status: res.status });
         }
         const data = await res.json();
         return json(data);
