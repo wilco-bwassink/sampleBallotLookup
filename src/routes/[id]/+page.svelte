@@ -1,16 +1,33 @@
 <script lang="ts">
-    export let data;
-const { 
-    voterInfo, 
-    federalOfficials, 
-    stateOfficials, 
-    countyOfficials, 
-    ballotStyle 
-} = data;
+  export let data: {
+    voterInfo: any;
+    federalOfficials: any[];
+    stateOfficials: any[];
+    countyOfficials: any[];
+    ballotStyle: string;
+    showSampleBallot: boolean;
+    isPrimary: boolean;
+    electionID: string;
+  };
 
-    // console.log('Rendering data', data);
+  const {
+    voterInfo,
+    federalOfficials,
+    stateOfficials,
+    countyOfficials,
+    ballotStyle,
+    showSampleBallot,
+    isPrimary,
+    electionID
+  } = data;
 
+  const showPrimaryElection = showSampleBallot && isPrimary;
+  const showGeneralElection = showSampleBallot && !isPrimary;
+
+  console.log({ showSampleBallot, isPrimary, showPrimaryElection, showGeneralElection });
 </script>
+
+
 <div class="voterContainer">
 <div class="voterInfo">
 {#if voterInfo}
@@ -24,12 +41,16 @@ const {
         <p><a href="https://www.wilcotx.gov/444/Name-Address-or-DPS-Change">Have you moved?</a></p>
         </div>
         </section>
-        <section id="non-primary_election">
+
+        {#if showGeneralElection}
+    <section id="non-primary_election">
         <h2>Sample Ballot</h2>
         <div><strong>PDF Sample Ballot Ballot:</strong> <a href="{ballotStyle}">{ballotStyle}</a></div>
         <div><strong>Interactive Sample Ballot:</strong> <a href="{ballotStyle}">Web Ballot</a></div>
         <!-- <div><strong>Effective Date:</strong> {voterInfo.EFFECTIVE_DATE}</div> -->
     </section>
+    {/if}
+    {#if showPrimaryElection}
     <section id="primary_election">
         <h2>Sample Ballot</h2>
         <div><strong>PDF Democrat Sample Ballot Ballot:</strong> <a href="{ballotStyle}">{ballotStyle}</a></div>
@@ -37,6 +58,7 @@ const {
         <div><strong>PDF Republican Sample Ballot Ballot:</strong> <a href="{ballotStyle}">{ballotStyle}</a></div>
         <div><strong>Interactive Republican Sample Ballot:</strong> <a href="{ballotStyle}">Web Ballot</a></div>
     </section>
+    {/if}
 {/if}
 </div>
 {#if federalOfficials && federalOfficials.length > 0}
