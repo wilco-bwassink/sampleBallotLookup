@@ -21,8 +21,9 @@
     electionID
   } = data;
 
-  const showPrimaryElection = showSampleBallot && isPrimary;
-  const showGeneralElection = showSampleBallot && !isPrimary;
+  const hasValidElectionID = electionID && electionID.trim() !== '';
+  const showPrimaryElection = showSampleBallot && isPrimary && hasValidElectionID;
+  const showGeneralElection = showSampleBallot && !isPrimary && hasValidElectionID;
 
   console.log({ showSampleBallot, isPrimary, showPrimaryElection, showGeneralElection });
 </script>
