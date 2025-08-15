@@ -1,0 +1,15 @@
+{
+  "site.title":       "Consulta de Boleta Electoral",
+  "nav.directions":   "Por favor, busque por Nombre y Fecha de Nacimiento o ID de Votante (VUID) para encontrar su información electoral.",
+  "voterInfo.nameTitle":   "Nombre",
+  "voterInfo.firstName": "Nombre",
+  "voterInfo.lastName":  "Apellido",
+  "voterInfo.dob":    "Fecha de Nacimiento",
+  "voterInfo.vuidTitle":   "ID de Votante",
+  "voterInfo.vuid":   "ID de Votante (VUID)",
+  "voterInfo.or": "o",
+  "voterInfo.search": "Buscar",
+  "searchResults.title": "Después de hacer clic en el botón Buscar, aparecerá una lista de nombres coincidentes a continuación. DEBE hacer clic en su nombre para ver su información electoral y la boleta de muestra (si están disponibles actualmente).",
+  "nav.newSearch": "Iniciar Nueva Búsqueda",
+  "nav.electionsLink": "Elecciones del Condado de Williamson"
+}

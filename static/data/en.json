@@ -1,0 +1,15 @@
+{
+  "site.title":       "Elections Ballot Lookup",
+  "nav.directions":   "Please search by Name and Date of Birth or Voter ID (VUID) to find your voter information.",
+  "voterInfo.nameTitle":   "Name",
+  "voterInfo.firstName": "First Name",
+  "voterInfo.lastName":  "Last Name",
+  "voterInfo.dob":    "Date of Birth",
+  "voterInfo.vuidTitle":   "Voter ID",
+  "voterInfo.vuid":   "Voter ID (VUID)",
+  "voterInfo.or": "or",
+  "voterInfo.search": "Search",
+  "searchResults.title": "After you click the Search button, a list of matching names will appear below. You MUST click on your name to view your voter information and sample Ballot (if they're currently available).",
+  "nav.newSearch": "Start New Search",
+  "nav.electionsLink": "Williamson County Elections"
+}
