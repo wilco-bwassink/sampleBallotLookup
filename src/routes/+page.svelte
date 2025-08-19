@@ -31,7 +31,7 @@
 		}));
 	}	
 
-	$: months = buildMonths($locale, 'long');
+	$: months = buildMonths($locale ?? undefined, 'long');
 
 	const days = Array.from({ length: 31 }, (_, i) => i + 1);
 	const currentYear = new Date().getFullYear();
