@@ -1,61 +1,37 @@
 <script lang="ts">
-	import { onMount } from 'svelte';
-	import AnnouncementSection from '$lib/components/AnnouncementSection.svelte';
+    import { onMount } from 'svelte';
+    import AnnouncementSection from '$lib/components/AnnouncementSection.svelte';
+	import LanguageToggle from '$lib/components/LanguageToggle.svelte';
+    import { t, isLoading, locale, waitLocale } from 'svelte-i18n';
+
+    let ready = false;
+    let initialized = false;
+
+    onMount(async () => {
+        try {
+            await waitLocale();
+            initialized = true;
+        } catch (error) {
+            console.error('Failed to initialize i18n:', error);
+        }
+    });
+
+    $: ready = initialized && !$isLoading;
+
+	
 	let electionStatus = [];
 	let settings = { EnglishText: '', SpanishText: '', ShowSampleBallot: false };
-	// import { getVoterDetails } from '$lib/server/db';
+	
+	// Builds out month dropdown using localization
+	function buildMonths(loc: string | undefined, width: 'long' | 'short' | 'narrow' = 'long') {
+		const fmt = new Intl.DateTimeFormat(loc || 'en', { month: width });
+		return Array.from({ length: 12 }, (_, i) => ({
+			value: i +1,
+			label: fmt.format(new Date(2000, i, 1))
+		}));
+	}	
 
-	type MonthName = 
-	| 'January'
-	| 'February'
-	| 'March'
-	| 'April'
-	| 'May'
-	| 'June'
-	| 'July'
-	| 'August'
-	| 'September'
-	| 'October'
-	| 'November'
-	| 'December';
-
-	const months = [
-		'January',
-		'February',
-		'March',
-		'April',
-		'May',
-		'June',
-		'July',
-		'August',
-		'September',
-		'October',
-		'November',
-		'December'
-	];
-
-	function getMonthNumber(monthName: string): number | null {
-		const monthMap: Record<MonthName, number> = {
-			'January': 1,
-			'February': 2,
-			'March': 3,
-			'April': 4,
-			'May': 5,
-			'June': 6,
-			'July': 7,
-			'August': 9,
-			'September': 8,
-			'October': 10,
-			'November': 11,
-			'December': 12,
-		};
-
-		if (monthName in monthMap) {
-			return monthMap [monthName as MonthName];
-		}
-
-		return null;
-	}
+	$: months = buildMonths($locale, 'long');
 
 	const days = Array.from({ length: 31 }, (_, i) => i + 1);
 	const currentYear = new Date().getFullYear();
@@ -101,13 +77,12 @@
 	if (voterID) {
 		payload = { voterID, electionID: selectedElection };
 	} else if (firstName && lastName && dobYear && dobMonth && dobDay) {
-		const monthNumber = getMonthNumber(dobMonth)
-
-		if (!monthNumber) {
-			alert('Please select a valid month.');
-			return;
-		}
-
+		const dobMonth = (document.getElementById('monthDropdown') as HTMLSelectElement)?.value;
+		const monthNumber = parseInt(dobMonth, 10);
+			if (!(monthNumber >= 1 && monthNumber <= 12)) {
+  				alert('Please select a valid month.');
+  				return;
+				}
 		const dob = `${dobYear}-${String(monthNumber).padStart(2, '0')}-${String(dobDay).padStart(2, '0')}`;
 		payload = { firstName, lastName, dob, electionID: selectedElection };
 	}
@@ -162,31 +137,20 @@
 		}
 	})
 
-	
+	$: console.log('locale=', $locale, 'loading=', $isLoading, 'title=', $t?.('site.title'));
 </script>
-
+{#if ready}
 <header>
 	<img
 		src="https://apps.wilco.org/utils/wilcoMark.svg"
 		width="100px"
 		alt="Williamson County W Logo"
 	/>
-	<h1>Elections Ballot Lookup</h1>
+	<h1>{$t('site.title')}</h1><!-- <h1>Elections Ballot Lookup</h1> -->
+	<div class="languageToggle"><LanguageToggle available={['en', 'es']}/></div>
+
 </header>
-<p>Please search by Name and Date of Birth or Voter ID (VUID) to find your voter information.</p>
-<!-- <p>
-	Please submit your last & first name and your date of birth to find your voter information. This
-	information is provided as a service to Williamson County and all information presented is based
-	solely on the names and addresses of registered voters. Voter information is updated daily. If you
-	feel there is any discrepancy in the provided information please feel free to contact us at (512)
-	943-1630. <!--All fields are required.-->
-<!-- </p>
-<p>
-	Voter registrations are effective 30 days after the submission of the application and may take 2-4
-	weeks to be fully processed. This lookup is updated daily to reflect applications that are fully
-	processed. If you have recently applied and do not see your name in the lookup, please check back
-	daily.
-</p> -->
+<p>{$t('nav.directions')}</p><!-- <p>Please search by Name and Date of Birth or Voter ID (VUID) to find your voter information.</p> -->
 {#if settings.ShowSampleBallot}
 <select name="electionDropdown" id="electionDropdown" bind:value={selectedElection} title="Election Drop-down" required>
 	<option value="">Select an Election</option>
@@ -198,22 +162,24 @@
 {/if}
 <div class="searchSection">
 <div id="nameDOBSection">
-<h4>Name:</h4>
+<h4>{$t('voterInfo.nameTitle')}</h4><!-- <h4>Name:</h4> -->
 <div class="voterName">
 	<div class="firstName">
 		<input type="text" name="firstName" id="firstNameInput" title="First Name Input"/><br />
-		<label for="firstNameInput">First Name</label>
+		<label for="firstNameInput">{$t('voterInfo.firstName')}</label>
+		<!-- // <label for="firstNameInput">First Name</label> -->
 	</div>
 	<div class="lastName">
 		<input type="text" name="lastName" id="lastNameInput" title="Last Name Input"/><br />
-		<label for="lastNameInput">Last Name</label>
+		<label for="lastNameInput">{$t('voterInfo.lastName')}</label>
+		<!-- // <label for="lastNameInput">Last Name</label> -->
 	</div>
 </div>
-<h4>Date of Birth:</h4>
+<h4>{$t('voterInfo.dob')}</h4><!--<h4>Date of Birth:</h4>-->
 <div class="voterDOB">
 	<select name="monthDropdown" id="monthDropdown" title="Voter Birth Month Drop-down">
-		{#each months as month}
-			<option value={month}>{month}</option>
+		{#each months as m}
+			<option value={m.value}>{m.label}</option>
 		{/each}
 	</select>
 	<select name="dayDropdown" id="dayDropdown" title="Voter Birth Day Drop-down">
@@ -228,29 +194,35 @@
 	</select>
 </div>
 </div>
-<div class="or">or</div>
+<div class="or">{$t('voterInfo.or')}</div>
 <div id="voterIDSection">
-<h4>Voter ID:</h4>
+<h4>{$t('voterInfo.vuidTitle')}</h4><!--<h4>Voter ID:</h4>-->
 <div class="voterID">
 	<input type="text" name="voterID" id="voterIDInput" title="Voter ID Input"/><br />
-	<label for="voterIDInput">Voter ID (VUID)</label>
+	<label for="voterIDInput">{$t('voterInfo.vuid')}</label>
+	<!-- // <label for="voterIDInput">Voter ID (VUID)</label> -->
 </div>
 </div>
 </div>
-<button class="button button__blue" on:click={handSearch}>Search</button>
+<button class="button button__blue" on:click={handSearch}>{$t('voterInfo.search')}</button>
+<!-- // <button class="button button__blue" on:click={handSearch}>Search</button> -->
 <div id="voterInfo"></div>
-<h3>
-	After you click the "Search" button, a list of matching names will appear below. You MUST click on
-	your name to view your voter information and sample Ballot (if they're currently available).
-</h3>
+<h3>{$t('searchResults.title')}</h3>
+<!-- // <h3>
+// 	After you click the "Search" button, a list of matching names will appear below. You MUST click on
+// 	your name to view your voter information and sample Ballot (if they're currently available).
+// </h3> -->
 <div class="bottomLinks">
-	<a href="\#">Start a New Search</a>
-	<a href="http://www.wilcotx.gov/elections">Williamson County Elections</a>
+	<a href="\#">{$t('nav.newSearch')}</a>
+	<!-- <a href="\#">Start a New Search</a> -->
+	<a href="http://www.wilcotx.gov/elections">{$t('nav.electionsLink')}</a>
+	<!-- <a href="http://www.wilcotx.gov/elections">Williamson County Elections</a> -->
 </div>
 
 {#if searchResults.length > 0}
 <section id="searchResults">
-	<h2>Matching Voters</h2>
+	<h2>{$t('nav.matchingVoters')}</h2>
+	<!-- <h2>Matching Voters</h2> -->
 	<ul>
 		{#each searchResults as voter}
 		<li class="voterDetails">
@@ -271,7 +243,9 @@
 Voter registrations are effective 30 days after the submission of the application. If you have recently applied and do not see your name in the lookup, please check back.</p>
 <p>Voter registrations are effective 30 days after the submission of the application. If you have recently applied and do not see your name in the lookup, please check back.</p>
 <p>If you are currently registered to vote in Williamson County, and have moved within the county or have changed your name, please make sure to update your voter registration information.</p> -->
-
+{:else}
+<p>Loading...</p>
+{/if}
 <style>
 	#electionDropdown {
 		min-width: 15em;
@@ -330,4 +304,15 @@ Voter registrations are effective 30 days after the submission of the applicatio
 	select:focus-within {
 		border: 1px #000 solid;
 	}
+
+	.languageToggle {
+		position: absolute;
+		top: 1em;
+		right: 1em;
+	}
+
+	.spanishInfo {display: none;}
+
+	:global(html[lang="es"]) .englishInfo { display: none; }
+	:global(html[lang="es"]) .spanishInfo { display: block; }
 </style>

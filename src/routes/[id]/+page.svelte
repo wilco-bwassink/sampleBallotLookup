@@ -1,4 +1,6 @@
 <script lang="ts">
+    import { t } from 'svelte-i18n';
+
   export let data: {
     voterInfo: any;
     federalOfficials: any[];
@@ -33,31 +35,46 @@
 <div class="voterInfo">
 {#if voterInfo}
     <section class="voterDetailsSection">
-        <h2>Voter Information</h2>
-        <div><strong>Name:</strong>  {voterInfo.NAME}</div>
-        <div><strong>TX Voter ID (VUID):</strong> {voterInfo.STATEVUID}</div>
-        <div><strong>Voting Precinct:</strong> {voterInfo.PRECINCT}</div>
-        <div><strong>Status:</strong> {voterInfo.STATUS}</div>
-        <div><strong>Address:</strong> {voterInfo.ADDRESS}
-        <p><a href="https://www.wilcotx.gov/444/Name-Address-or-DPS-Change">Have you moved?</a></p>
+        <h2>{$t('nav.voterInfo')}</h2>
+        <!-- <h2>Voter Information</h2> -->
+        <div><strong>{$t('nav.idName')}:</strong>  {voterInfo.NAME}</div>
+        <!-- <div><strong>Name:</strong>  {voterInfo.NAME}</div> -->
+        <div><strong>{$t('nav.idVuid')}:</strong> {voterInfo.STATEVUID}</div>
+        <!-- <div><strong>TX Voter ID (VUID):</strong> {voterInfo.STATEVUID}</div> -->
+        <div><strong>{$t('nav.votingPrecinct')}:</strong> {voterInfo.PRECINCT}</div>
+        <!-- <div><strong>Voting Precinct:</strong> {voterInfo.PRECINCT}</div> -->
+        <div><strong>{$t('nav.status')}:</strong> {voterInfo.STATUS}</div>
+        <!-- <div><strong>Status:</strong> {voterInfo.STATUS}</div> -->
+        <div><strong>{$t('nav.address')}:</strong> {voterInfo.ADDRESS}
+        <!-- <div><strong>Address:</strong> {voterInfo.ADDRESS} -->
+        <p><a href="https://www.wilcotx.gov/444/Name-Address-or-DPS-Change">{$t('nav.moved')}</a></p>
+        <!-- <p><a href="https://www.wilcotx.gov/444/Name-Address-or-DPS-Change">Have you moved?</a></p> -->
         </div>
         </section>
 
         {#if showGeneralElection}
     <section id="non-primary_election">
-        <h2>Sample Ballot</h2>
-        <div><strong>PDF Sample Ballot Ballot:</strong> <a href="{ballotStyle}">{ballotStyle}</a></div>
-        <div><strong>Interactive Sample Ballot:</strong> <a href="{ballotStyle}">Web Ballot</a></div>
+        <h2>{$t('nav.sampleBallot')}</h2>
+        <!-- <h2>Sample Ballot</h2> -->
+        <div><strong>{$t('nav.pdfSampleBallot')}:</strong> <a href="{ballotStyle}">{ballotStyle}</a></div>
+        <!-- <div><strong>PDF Sample Ballot Ballot:</strong> <a href="{ballotStyle}">{ballotStyle}</a></div> -->
+        <div><strong>{$t('nav.intSampleBallot')}:</strong> <a href="{ballotStyle}">Web Ballot</a></div>
+        <!-- <div><strong>Interactive Sample Ballot:</strong> <a href="{ballotStyle}">Web Ballot</a></div> -->
         <!-- <div><strong>Effective Date:</strong> {voterInfo.EFFECTIVE_DATE}</div> -->
     </section>
     {/if}
     {#if showPrimaryElection}
     <section id="primary_election">
-        <h2>Sample Ballot</h2>
-        <div><strong>PDF Democrat Sample Ballot Ballot:</strong> <a href="{ballotStyle}">{ballotStyle}</a></div>
-        <div><strong>Interactive Democrat Sample Ballot:</strong> <a href="{ballotStyle}">Web Ballot</a></div>
-        <div><strong>PDF Republican Sample Ballot Ballot:</strong> <a href="{ballotStyle}">{ballotStyle}</a></div>
-        <div><strong>Interactive Republican Sample Ballot:</strong> <a href="{ballotStyle}">Web Ballot</a></div>
+        <h2>{$t('nav.sampleBallot')}</h2>
+        <!-- <h2>Sample Ballot</h2> -->
+        <div><strong>{$t('nav.pdfDemSampleBallot')}:</strong> <a href="{ballotStyle}">{ballotStyle}</a></div>
+        <!-- <div><strong>PDF Democrat Sample Ballot Ballot:</strong> <a href="{ballotStyle}">{ballotStyle}</a></div> -->
+        <div><strong>{$t('nav.intDemSampleBallot')}:</strong> <a href="{ballotStyle}">Web Ballot</a></div>
+        <!-- <div><strong>Interactive Democrat Sample Ballot:</strong> <a href="{ballotStyle}">Web Ballot</a></div> -->
+        <div><strong>{$t('nav.pdfRepSampleBallot')}:</strong> <a href="{ballotStyle}">{ballotStyle}</a></div>
+        <!-- <div><strong>PDF Republican Sample Ballot Ballot:</strong> <a href="{ballotStyle}">{ballotStyle}</a></div> -->
+        <div><strong>{$t('nav.intRepSampleBallot')}:</strong> <a href="{ballotStyle}">Web Ballot</a></div>
+        <!-- <div><strong>Interactive Republican Sample Ballot:</strong> <a href="{ballotStyle}">Web Ballot</a></div> -->
     </section>
     {/if}
 {/if}
@@ -65,13 +82,14 @@
 {#if federalOfficials && federalOfficials.length > 0}
 <section class="electedOfficialSection">
     <details name="electedOfficials">
-        <summary>Federal Elected Officials</summary>
+        <summary>{$t('nav.fedEOs')}</summary>
+        <!-- <summary>Federal Elected Officials</summary> -->
         <ul class="feds">
             {#each federalOfficials as official}
             <li>
-                <div><strong>Description:</strong> {official.Description}</div>
-                <div><strong>Official:</strong> {official.Appointed_Official}</div>
-                <div><strong>Website:</strong> 
+                <div><strong>{$t('nav.eoDescription')}</strong> {official.Description}</div>
+                <div><strong>{$t('nav.eoOfficial')}</strong> {official.Appointed_Official}</div>
+                <div><strong>{$t('nav.eoWebsite')}</strong> 
                     <a href={official.Web_Site} target="_blank">{official.Web_Site}</a>
                 </div>
             </li>
@@ -84,13 +102,14 @@
 {#if stateOfficials && stateOfficials.length > 0}
 <section class="electedOfficialSection">
     <details name="electedOfficials">
-        <summary>State Elected Officials</summary>
+        <summary>{$t('nav.stateEOs')}</summary>
+        <!-- <summary>State Elected Officials</summary> -->
         <ul class="state">
             {#each stateOfficials as official}
             <li>
-                <div><strong>Description:</strong> {official.Description}</div>
-                <div><strong>Official:</strong> {official.Appointed_Official}</div>
-                <div><strong>Website:</strong> 
+                <div><strong>{$t('nav.eoDescription')}</strong> {official.Description}</div>
+                <div><strong>{$t('nav.eoOfficial')}</strong> {official.Appointed_Official}</div>
+                <div><strong>{$t('nav.eoWebsite')}</strong> 
                     <a href={official.Web_Site} target="_blank">{official.Web_Site}</a>
                 </div>
             </li>
@@ -103,13 +122,14 @@
 {#if countyOfficials && countyOfficials.length > 0}
 <section class="electedOfficialSection">
     <details name="electedOfficials">
-        <summary>County Elected Officials</summary>
+        <summary>{$t('nav.countyEOs')}</summary>
+        <!-- <summary>County Elected Officials</summary> -->
         <ul class="county">
             {#each countyOfficials as official}
             <li>
-                <div><strong>Description:</strong> {official.Description}</div>
-                <div><strong>Official:</strong> {official.Appointed_Official}</div>
-                <div><strong>Website:</strong> 
+                <div><strong>{$t('nav.eoDescription')}</strong> {official.Description}</div>
+                <div><strong>{$t('nav.eoOfficial')}</strong> {official.Appointed_Official}</div>
+                <div><strong>{$t('nav.eoWebsite')}</strong> 
                     <a href={official.Web_Site} target="_blank">{official.Web_Site}</a>
                 </div>
             </li>
