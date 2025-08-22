@@ -146,11 +146,11 @@
 		width="100px"
 		alt="Williamson County W Logo"
 	/>
-	<h1>{$t('site.title')}</h1><!-- <h1>Elections Ballot Lookup</h1> -->
+	<h1>{$t('site.title')}</h1>
 	<div class="languageToggle"><LanguageToggle available={['en', 'es']}/></div>
 
 </header>
-<p>{$t('nav.directions')}</p><!-- <p>Please search by Name and Date of Birth or Voter ID (VUID) to find your voter information.</p> -->
+<p>{$t('nav.directions')}</p>
 {#if settings.ShowSampleBallot}
 <select name="electionDropdown" id="electionDropdown" bind:value={selectedElection} title="Election Drop-down" required>
 	<option value="">Select an Election</option>
@@ -162,20 +162,20 @@
 {/if}
 <div class="searchSection">
 <div id="nameDOBSection">
-<h4>{$t('voterInfo.nameTitle')}</h4><!-- <h4>Name:</h4> -->
+<h4>{$t('voterInfo.nameTitle')}</h4>
 <div class="voterName">
 	<div class="firstName">
 		<input type="text" name="firstName" id="firstNameInput" title="First Name Input"/><br />
 		<label for="firstNameInput">{$t('voterInfo.firstName')}</label>
-		<!-- // <label for="firstNameInput">First Name</label> -->
+		
 	</div>
 	<div class="lastName">
 		<input type="text" name="lastName" id="lastNameInput" title="Last Name Input"/><br />
 		<label for="lastNameInput">{$t('voterInfo.lastName')}</label>
-		<!-- // <label for="lastNameInput">Last Name</label> -->
+		
 	</div>
 </div>
-<h4>{$t('voterInfo.dob')}</h4><!--<h4>Date of Birth:</h4>-->
+<h4>{$t('voterInfo.dob')}</h4>
 <div class="voterDOB">
 	<select name="monthDropdown" id="monthDropdown" title="Voter Birth Month Drop-down">
 		{#each months as m}
@@ -196,33 +196,24 @@
 </div>
 <div class="or">{$t('voterInfo.or')}</div>
 <div id="voterIDSection">
-<h4>{$t('voterInfo.vuidTitle')}</h4><!--<h4>Voter ID:</h4>-->
+<h4>{$t('voterInfo.vuidTitle')}</h4>
 <div class="voterID">
 	<input type="text" name="voterID" id="voterIDInput" title="Voter ID Input"/><br />
 	<label for="voterIDInput">{$t('voterInfo.vuid')}</label>
-	<!-- // <label for="voterIDInput">Voter ID (VUID)</label> -->
 </div>
 </div>
 </div>
 <button class="button button__blue" on:click={handSearch}>{$t('voterInfo.search')}</button>
-<!-- // <button class="button button__blue" on:click={handSearch}>Search</button> -->
 <div id="voterInfo"></div>
 <h3>{$t('searchResults.title')}</h3>
-<!-- // <h3>
-// 	After you click the "Search" button, a list of matching names will appear below. You MUST click on
-// 	your name to view your voter information and sample Ballot (if they're currently available).
-// </h3> -->
 <div class="bottomLinks">
 	<a href="\#">{$t('nav.newSearch')}</a>
-	<!-- <a href="\#">Start a New Search</a> -->
 	<a href="http://www.wilcotx.gov/elections">{$t('nav.electionsLink')}</a>
-	<!-- <a href="http://www.wilcotx.gov/elections">Williamson County Elections</a> -->
 </div>
 
 {#if searchResults.length > 0}
 <section id="searchResults">
 	<h2>{$t('nav.matchingVoters')}</h2>
-	<!-- <h2>Matching Voters</h2> -->
 	<ul>
 		{#each searchResults as voter}
 		<li class="voterDetails">
@@ -237,12 +228,7 @@
 <div class="adminInfo englishInfo">{@html settings.EnglishText.replace(/\r\n/g,'<br><br>')}</div>
 <div class="adminInfo spanishInfo">{@html settings.SpanishText.replace(/\r\n/g,'<br><br>')}</div>
 </section>
-<!-- <p>Please search by Name and Date of Birth or Voter ID (VUID) to find your voter information.</p>
- 
-<p>This is provided as a service to Williamson County and all information presented is based solely on the names and addresses of registered voters. If you feel there is any discrepancy in the provided information please email <a href="mailto:VoterRegistration@wilcotx.gov">VoterRegistration@wilcotx.gov</a> or call 512-943-1630.
-Voter registrations are effective 30 days after the submission of the application. If you have recently applied and do not see your name in the lookup, please check back.</p>
-<p>Voter registrations are effective 30 days after the submission of the application. If you have recently applied and do not see your name in the lookup, please check back.</p>
-<p>If you are currently registered to vote in Williamson County, and have moved within the county or have changed your name, please make sure to update your voter registration information.</p> -->
+
 {:else}
 <p>Loading...</p>
 {/if}
