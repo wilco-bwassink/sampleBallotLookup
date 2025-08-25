@@ -160,6 +160,7 @@
 </select><br />
 <AnnouncementSection {selectedElection} {electionData} />
 {/if}
+<div class="searchShell">
 <div class="searchSection">
 <div id="nameDOBSection">
 <h4>{$t('voterInfo.nameTitle')}</h4>
@@ -203,6 +204,7 @@
 </div>
 </div>
 </div>
+</div>
 <button class="button button__blue" on:click={handSearch}>{$t('voterInfo.search')}</button>
 <div id="voterInfo"></div>
 <h3>{$t('searchResults.title')}</h3>
@@ -233,17 +235,156 @@
 <p>Loading...</p>
 {/if}
 <style>
-	#electionDropdown {
-		min-width: 15em;
+	/* @supports (container-type: inline-size;) { */
+		.searchShell {
+			container: shell / inline-size;
+
+			@container shell (width <= 700px) {
+				.searchSection {
+					flex-direction: column;
+					align-items: stretch;
+				}
+
+				.searchSection > * {
+					inline-size: 100%;
+				}
+
+				.or {
+					text-align: center;
+					margin-block: .75em;
+				}
+			}
+
+			@container shell (width >= 700px) {
+				.searchSection {
+					flex-direction: row;
+					align-items: flex-start;
+				}
+			}
+		
+
+		#electionDropdown {
+			min-width: 15em;
+		}
+		.searchSection {
+			display: flex;
+			justify-content: space-around;
+			gap: 1.25rem;
+
+			> * {
+				flex: 1 1 0;
+				min-inline-size: 16rem;
+			}
+
+			.or {
+				align-self: center;
+				font-weight: 700;
+				text-align: center;
+			}
+		}
+
+		#nameDOBSection {
+			container: name / inline-size;
+
+			.voterName {
+			display: flex;
+			gap: 1em;
+			}
+			
+			.voterDOB {
+				display: flex;
+				gap: .75em;
+			}
+
+			@container name (width <= 480px) {
+				.voterName {
+					display: grid;
+					grid-template-columns: 1fr;
+					gap: .5em;
+				}
+				.voterDOB {
+					display: grid;
+					grid-template-columns: 1fr 1fr;
+					gap: .5em
+				}
+			}
+
+			@container name (width >= 640px) {
+				.voterDOB {
+					display: grid;
+					grid-template-columns: repeat(3, 1fr);
+					gap: .75em;
+				}
+			}
+		}
+
+		#voterIDSection {
+			container: vuid / inline-size;
+
+			@container vuid (width <= 420 ) {
+				.voterID {
+					display: grid;
+					grid-template-columns: 1fr;
+					gap: .5rem;
+				}
+				input {
+					min-width: 0;
+				}
+			}
+		}
 	}
-	.searchSection {
+
+	header {
+		container: header / inline-size;
 		display: flex;
-		justify-content: space-around;
+		align-items: center;
+		gap: 1rem;
+		padding: 1rem;
+		flex-direction: row;
+		justify-content: space-between;
+
+		img {
+			flex-shrink: 0;
+		}
+
+		h1 {
+			font-size: 1.5rem;
+			line-height: 1.2;
+			flex: 1;
+		}
+
+		.languageToggle {
+			margin-left: auto;
+		}
+
+		@container header ( width <= 600px) {
+			flex-direction: column;
+			align-items: center;
+			text-align: center;
+
+			h1 {
+				font-size: 1.25rem;
+				margin-block: .5rem;
+			}
+
+			.languageToggle {
+				margin-left: 0;
+				position: static;
+				width: 150px;
+			}
+		}
+
+		@container header (width > 1000px) {
+			h1 {
+				font-size: 2rem;
+			}
+
+			.languageToggle {
+				width: 201px;
+			}
+		}
 	}
-	.voterName {
-		display: flex;
-		gap: 1em;
-	}
+	
 	.voterInfo {
 		text-transform: capitalize;
 	}
@@ -252,10 +393,10 @@
 		gap: 1em;
 	}
 
-	.or {
+	/* .or {
 		font-weight: bold;
 		margin-top: 1em;
-	}
+	} */
 
 	.button {
 		margin-top: 1em;
@@ -291,11 +432,11 @@
 		border: 1px #000 solid;
 	}
 
-	.languageToggle {
+	/* .languageToggle {
 		position: absolute;
 		top: 1em;
 		right: 1em;
-	}
+	} */
 
 	.spanishInfo {display: none;}
 

@@ -168,6 +168,7 @@
         flex-direction: column;
         flex-wrap: wrap;
         align-content: flex-start;
+        padding-inline-start: 0;
      }
 
      .feds {
@@ -185,7 +186,7 @@
     }
     .county {
         max-height: 400px;
-        /* overflow: scroll; */
+        overflow: scroll;
         li:nth-child(even) {
             background-color: var(--wc-tan-60);/**#e7e5e2;**/
         }
@@ -215,6 +216,9 @@
 
         ul {
             grid-template-columns: 1fr;
+            margin-block: 0;
+            flex-wrap:nowrap;
+            width: 100%;
         }
     }
 </style>

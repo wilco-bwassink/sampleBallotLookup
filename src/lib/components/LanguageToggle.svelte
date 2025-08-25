@@ -19,9 +19,12 @@
     <style>
       div {
         display: flex;
-        flex-direction: column;
+        /* flex-direction: column; */
+        flex-wrap: wrap;
         align-items: flex-end;
+        justify-content: flex-end;
         gap: 0.5rem;
+        /* width: 10svw; */
       }
       select {
         padding: 0.25rem 0.5rem;
