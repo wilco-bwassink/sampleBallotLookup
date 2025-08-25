@@ -379,9 +379,9 @@
 				font-size: 2rem;
 			}
 
-			.languageToggle {
+			/* .languageToggle {
 				width: 201px;
-			}
+			} */
 		}
 	}
 	
