@@ -1,5 +1,5 @@
 {
-  "site.title":       "Consulta de Boleta Electoral",
+  "site.title":       "Búsqueda de votantes y boletas de muestra",
   "nav.directions":   "Por favor, busque por Nombre y Fecha de Nacimiento o ID de Votante (VUID) para encontrar su información electoral.",
   "voterInfo.nameTitle":   "Nombre",
   "voterInfo.firstName": "Nombre",

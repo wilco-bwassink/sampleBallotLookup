@@ -30,7 +30,16 @@
   console.log({ showSampleBallot, isPrimary, showPrimaryElection, showGeneralElection });
 </script>
 
+<header>
+	<img
+		src="https://apps.wilco.org/utils/wilcoMark.svg"
+		width="100px"
+		alt="Williamson County W Logo"
+	/>
+	<h1>{$t('site.title')}</h1>
+	<!-- <div class="languageToggle"><LanguageToggle available={['en', 'es']}/></div> -->
 
+</header>
 <div class="voterContainer">
 <div class="voterInfo">
 {#if voterInfo}
@@ -47,7 +56,7 @@
         <!-- <div><strong>Status:</strong> {voterInfo.STATUS}</div> -->
         <div><strong>{$t('nav.address')}:</strong> {voterInfo.ADDRESS}
         <!-- <div><strong>Address:</strong> {voterInfo.ADDRESS} -->
-        <p><a href="https://www.wilcotx.gov/444/Name-Address-or-DPS-Change">{$t('nav.moved')}</a></p>
+        <p><a href="https://www.wilcotx.gov/444/Name-Address-or-DPS-Change" target="_blank">{$t('nav.moved')}</a></p>
         <!-- <p><a href="https://www.wilcotx.gov/444/Name-Address-or-DPS-Change">Have you moved?</a></p> -->
         </div>
         </section>
@@ -89,8 +98,8 @@
             <li>
                 <div><strong>{$t('nav.eoDescription')}</strong> {official.Description}</div>
                 <div><strong>{$t('nav.eoOfficial')}</strong> {official.Appointed_Official}</div>
-                <div><strong>{$t('nav.eoWebsite')}</strong> 
-                    <a href={official.Web_Site} target="_blank">{official.Web_Site}</a>
+                <div><strong><a href={official.Web_Site} target="_blank">{$t('nav.eoWebsite')}</a></strong> 
+                    <!-- <a href={official.Web_Site} target="_blank">{official.Web_Site}</a> -->
                 </div>
             </li>
             {/each}
@@ -109,8 +118,8 @@
             <li>
                 <div><strong>{$t('nav.eoDescription')}</strong> {official.Description}</div>
                 <div><strong>{$t('nav.eoOfficial')}</strong> {official.Appointed_Official}</div>
-                <div><strong>{$t('nav.eoWebsite')}</strong> 
-                    <a href={official.Web_Site} target="_blank">{official.Web_Site}</a>
+                <div><strong><a href={official.Web_Site} target="_blank">{$t('nav.eoWebsite')}</a></strong> 
+                    <!-- <a href={official.Web_Site} target="_blank">{official.Web_Site}</a> -->
                 </div>
             </li>
             {/each}
@@ -129,8 +138,8 @@
             <li>
                 <div><strong>{$t('nav.eoDescription')}</strong> {official.Description}</div>
                 <div><strong>{$t('nav.eoOfficial')}</strong> {official.Appointed_Official}</div>
-                <div><strong>{$t('nav.eoWebsite')}</strong> 
-                    <a href={official.Web_Site} target="_blank">{official.Web_Site}</a>
+                <div><strong><a href={official.Web_Site} target="_blank">{$t('nav.eoWebsite')}</a></strong> 
+                    <!-- <a href={official.Web_Site} target="_blank">{official.Web_Site}</a> -->
                 </div>
             </li>
             {/each}
@@ -174,10 +183,14 @@
      .feds {
         max-height: 320px;
         overflow: scroll;
+
+        li:nth-child(even) {
+            background-color: var(--wc-tan-60);/**#e7e5e2;**/
+        }
      }
 
     .state {
-        max-height: 960px;
+        max-height: 967px;
         overflow: scroll;
 
         li:nth-child(even) {
@@ -185,7 +198,7 @@
         }
     }
     .county {
-        max-height: 400px;
+        max-height: 415px;
         overflow: scroll;
         li:nth-child(even) {
             background-color: var(--wc-tan-60);/**#e7e5e2;**/
@@ -193,6 +206,7 @@
     }
     li {
         list-style: none;
+        padding: .5em;
     }
     details {
         margin: 1em 0;

@@ -252,6 +252,7 @@
 				.or {
 					text-align: center;
 					margin-block: .75em;
+					font-size: 1.5em;
 				}
 			}
 
@@ -280,6 +281,7 @@
 				align-self: center;
 				font-weight: 700;
 				text-align: center;
+				font-size: 1.5em;
 			}
 		}
 
