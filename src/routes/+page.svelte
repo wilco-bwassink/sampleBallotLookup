@@ -3,9 +3,11 @@
     import AnnouncementSection from '$lib/components/AnnouncementSection.svelte';
 	import LanguageToggle from '$lib/components/LanguageToggle.svelte';
     import { t, isLoading, locale, waitLocale } from 'svelte-i18n';
+	import { showToast } from '$lib/toast';
 
     let ready = false;
     let initialized = false;
+	let results: any[] = [];
 
     onMount(async () => {
         try {
@@ -77,7 +79,6 @@
 	if (voterID) {
 		payload = { voterID, electionID: selectedElection };
 	} else if (firstName && lastName && dobYear && dobMonth && dobDay) {
-		const dobMonth = (document.getElementById('monthDropdown') as HTMLSelectElement)?.value;
 		const monthNumber = parseInt(dobMonth, 10);
 			if (!(monthNumber >= 1 && monthNumber <= 12)) {
   				alert('Please select a valid month.');
@@ -108,7 +109,14 @@
 
 		searchResults = data.voters || [];
 
-		// TO DO: handle results
+		const count = Array.isArray(searchResults) ? searchResults.length : 0;
+		if (count > 0) {
+			showToast(`${count} results${count === 1 ? '' : 's'} found`);
+		}
+
+		else {
+			showToast('No matching voters found', 2500);
+		}
 		console.log('Search results:', data);
 	} catch (err) {
 		console.error('Search failed:', err);
@@ -138,6 +146,9 @@
 	})
 
 	$: console.log('locale=', $locale, 'loading=', $isLoading, 'title=', $t?.('site.title'));
+
+
+	
 </script>
 {#if ready}
 <header>
