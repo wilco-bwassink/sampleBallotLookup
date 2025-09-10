@@ -190,7 +190,7 @@
      }
 
     .state {
-        max-height: 967px;
+        max-height: 415px; /**967px**/
         overflow: scroll;
 
         li:nth-child(even) {

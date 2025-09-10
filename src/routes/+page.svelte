@@ -152,11 +152,7 @@
 </script>
 {#if ready}
 <header>
-	<img
-		src="https://apps.wilco.org/utils/wilcoMark.svg"
-		width="100px"
-		alt="Williamson County W Logo"
-	/>
+	<img src="https://apps.wilco.org/utils/wilcoMark.svg" width="100px" alt="Williamson County W Logo"/>
 	<h1>{$t('site.title')}</h1>
 	<div class="languageToggle"><LanguageToggle available={['en', 'es']}/></div>
 
@@ -275,9 +271,9 @@
 			}
 		
 
-		#electionDropdown {
+		/* #electionDropdown {
 			min-width: 15em;
-		}
+		} */
 		.searchSection {
 			display: flex;
 			justify-content: space-around;
