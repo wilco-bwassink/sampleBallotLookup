@@ -32,5 +32,7 @@
   "nav.countyEOs": "County Elected Officials",
   "nav.eoDescription": "Description",
   "nav.eoOfficial": "Official",
-  "nav.eoWebsite": "Website"
+  "nav.eoWebsite": "Website",
+  "nav.selectElection": "Select Election"
+
 }

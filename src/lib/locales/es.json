@@ -32,5 +32,6 @@
   "nav.countyEOs": "Funcionarios Electos del Condado",
   "nav.eoDescription": "Descripción",
   "nav.eoOfficial": "Oficial",
-  "nav.eoWebsite": "Sitio Web"
+  "nav.eoWebsite": "Sitio Web",
+  "nav.selectElection": "Seleccionar Elección"
 }
