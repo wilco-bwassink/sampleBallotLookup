@@ -195,21 +195,30 @@
 
         <h4>{$t('voterInfo.dob')}</h4>
         <div class="voterDOB">
+          <div class="voterDOBelement">
           <select name="monthDropdown" id="monthDropdown" title="Voter Birth Month Drop-down">
             {#each months as m}
               <option value={m.value}>{m.label}</option>
             {/each}
           </select>
+          <label for="monthDropdown">{$t('voterInfo.month')}</label>
+          </div>
+          <div class="voterDOBelement">
           <select name="dayDropdown" id="dayDropdown" title="Voter Birth Day Drop-down">
             {#each days as day}
               <option value={day}>{day}</option>
             {/each}
           </select>
+          <label for="dayDropdown">{$t('voterInfo.day')}</label>
+          </div>
+          <div class="voterDOBelement">
           <select id="yearDropdown" name="yearDropdown" title="Voter Birth Year Drop-down">
             {#each years as year}
               <option value={year}>{year}</option>
             {/each}
           </select>
+          <label for="yearDropdown">{$t('voterInfo.year')}</label>
+        </div>
         </div>
       </div>
 
@@ -420,6 +429,11 @@
     text-transform: capitalize;
   }
 
+  .voterDOBelement {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25em;
+  }
   .bottomLinks {
     display: flex;
     gap: 1em;
@@ -432,6 +446,9 @@
 
   #searchResults {
     margin-top: 2em;
+    background-color: #fff;
+    border-radius: 8px;
+    padding: .5em;
   }
 
   #searchResults ul {
