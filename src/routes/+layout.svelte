@@ -1,7 +1,9 @@
 <script lang="ts">
   import { waitLocale, setLocale } from '$lib/i18n';
   import { browser } from '$app/environment';
+  import ToastHost from '$lib/components/ToastHost.svelte';
   export let data: { lang: string };
+  
 
   // If user has picked a language apply it asap
   if (browser) {
@@ -23,3 +25,4 @@
 {:then}
   <slot />
 {/await}
+<ToastHost />
