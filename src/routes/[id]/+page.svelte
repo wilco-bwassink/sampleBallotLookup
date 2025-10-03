@@ -91,7 +91,7 @@
             <strong>PDF Sample Ballot:</strong>
             {#if styleNumber}
               <a href={pdfUrl} target="_blank" rel="noopener">
-                View PDF (style {styleNumber})
+                {$t('nav.pdfBallot')}
               </a>
             {:else}
               <span>Not available</span>
@@ -101,7 +101,7 @@
           <div>
             <strong>Interactive Sample Ballot:</strong>
             {#if interactiveHref}
-              <a href={interactiveHref} target="_blank" rel="noopener">Web Ballot</a>
+              <a href={interactiveHref} target="_blank" rel="noopener">{$t('nav.webBallot')}</a>
             {:else}
               <span>Not available</span>
             {/if}

@@ -162,6 +162,7 @@
   <p>{$t('nav.directions')}</p>
 
   {#if settings.ShowSampleBallot}
+    <h2>{$t('nav.electionSelect')}</h2>
     <select
       name="electionDropdown"
       id="electionDropdown"

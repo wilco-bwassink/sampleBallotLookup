@@ -1,6 +1,7 @@
 {
   "site.title":       "Voter and Sample Ballot Lookup",
   "nav.directions":   "Please search by Name and Date of Birth or Voter ID (VUID) to find your voter information.",
+  "nav.electionSelect": "Select an Election",
   "voterInfo.nameTitle":   "Name",
   "voterInfo.firstName": "First Name",
   "voterInfo.lastName":  "Last Name",
@@ -25,7 +26,9 @@
   "nav.status": "Status",
   "nav.address": "Address",
   "nav.pdfSampleBallot": "Sample Ballot PDF",
+  "nav.pdfBallot": "Ballot PDF",
   "nav.intSampleBallot": "Interactive Sample Ballot",
+  "nav.webBallot": "Web Ballot",
   "nav.pdfDemSampleBallot": "Democratic Sample Ballot PDF",
   "nav.intDemSampleBallot": "Democratic Interactive Sample Ballot",
   "nav.pdfRepSampleBallot": "Republican Sample Ballot PDF",
