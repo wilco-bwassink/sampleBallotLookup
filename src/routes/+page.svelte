@@ -170,7 +170,7 @@
       title="Election Drop-down"
       required
     >
-      <option value="">{ $t('nav.selectElection') || 'Select an Election' }</option>
+      <option value="0">{ $t('nav.selectElection') || 'Select an Election' }</option>
       {#each elections as electionKey}
         <option value={electionKey}>{getElectionLabel(electionKey)}</option>
       {/each}
@@ -242,7 +242,7 @@
   <h3>{$t('searchResults.title')}</h3>
 
   <div class="bottomLinks">
-    <a href="#">{$t('nav.newSearch')}</a>
+    <!-- <a href="#">{$t('nav.newSearch')}</a> -->
     <a href="http://www.wilcotx.gov/elections">{$t('nav.electionsLink')}</a>
   </div>
 
