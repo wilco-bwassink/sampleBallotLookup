@@ -26,7 +26,11 @@ export const load: PageLoad = async ({ params, url, fetch }) => {
   const rawSettings = await settingsRes.json();
   const rawStatus = await statusRes.json();
 
-  const showSampleBallot = Boolean(rawSettings.ShowSampleBallot);
+  let showSampleBallot = Boolean(rawSettings.ShowSampleBallot);
+
+  if (electionID === '0') {  //Don't show sample ballot section when no election selected
+    showSampleBallot = false;
+  }
 
   let isPrimary = false;
   if (electionID && rawStatus[electionID]) {

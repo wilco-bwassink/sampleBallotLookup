@@ -52,7 +52,7 @@
 
   let electionData: Record<string, ElectionRecord> = {};
   let elections: string[] = [];
-  let selectedElection = '';
+  let selectedElection = '0';
 
   // voter search results
   let searchResults: Array<{ IDNUMBER: string; NAME: string; ADDRESS: string }> = [];
