@@ -1,6 +1,7 @@
 {
   "site.title":       "Búsqueda de votantes y boletas de muestra",
   "nav.directions":   "Por favor, busque por Nombre y Fecha de Nacimiento o ID de Votante (VUID) para encontrar su información electoral.",
+  "nav.electionSelect": "Seleccione una elección",
   "voterInfo.nameTitle":   "Nombre",
   "voterInfo.firstName": "Nombre",
   "voterInfo.lastName":  "Apellido",
@@ -25,7 +26,9 @@
   "nav.status": "Estado",
   "nav.address": "Dirección",
   "nav.pdfSampleBallot": "Boleta de Muestra en PDF",
+  "nav.pdfBallot": "Boleta en PDF",
   "nav.intSampleBallot": "Boleta de Muestra Interactiva",
+  "nav.webBallot": "Votación web",
   "nav.pdfDemSampleBallot": "Boleta de Muestra Demócrata en PDF",
   "nav.intDemSampleBallot": "Boleta de Muestra Demócrata Interactiva",
   "nav.pdfRepSampleBallot": "Boleta de Muestra Republicana en PDF",
