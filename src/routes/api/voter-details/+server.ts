@@ -18,43 +18,82 @@ export const POST: RequestHandler = async ({ request }) => {
     const stateOfficials   = recordsets?.[2] ?? [];
     const countyOfficials  = recordsets?.[3] ?? [];
 
-    // The row that SHOULD contain ballot-style info (interactive link, etc.)
-    const row = recordsets?.[4]?.[0] ?? null;
+    // --- Ballot recordsets (robust detection) ---
+    const firstRow = (rs: any) => (Array.isArray(rs) && rs.length ? rs[0] : null);
 
-    // Pull the link from any plausible column the proc might return
-    const interactiveUrl =
-      (row?.InteractiveBallotUrl ??            // our recommended alias
-       row?.interactiveBallotUrl ??            // lowercase variant
-       row?.interactiveUrl ??                  // already mapped case
-       row?.QA_LINK ??                         // common legacy column
-       row?.Prod_Link ?? row?.PROD_LINK ??     // some envs have PROD link
-       row?.BallotStyle ??                     // in older proc, QA_LINK aliased as "BallotStyle"
-       '') as string;
-
-    // Style number from any plausible column
-    const styleNumber =
-      (row?.BallotStyleNumber ??
-       row?.ballotStyleNumber ??
-       row?.BallotStyle2 ??                    // older proc sometimes emitted this
-       row?.BallotStyle ??                     // (not ideal, but sometimes number was here)
-       '') as string;
-
-    const precinct =
-      (row?.Precinct ?? row?.PRECINCT ?? '') as string;
-
-    const ballotStyle = {
-      number: styleNumber ?? '',
-      precinct: precinct ?? '',
-      interactiveUrl: interactiveUrl ?? ''
+    const findRowByKey = (key: string) => {
+      for (const rs of recordsets ?? []) {
+        const r = firstRow(rs);
+        if (r && typeof r === 'object' && key in r) return r;
+      }
+      return null;
     };
 
-    // Optional debug echo so you can inspect in Network → Response
+    // Links row = has DemBallot/RepBallot
+    const ballotLinksRow =
+      findRowByKey('DemBallot') ??
+      findRowByKey('RepBallot') ??
+      findRowByKey('DEMBALLOT') ??
+      findRowByKey('REPBALLOT');
+
+    // Style row = has BallotStyle (pipe-separated)
+    const ballotStyleRow =
+      findRowByKey('BallotStyle') ??
+      findRowByKey('BALLOTSTYLE') ??
+      findRowByKey('ballotStyle');
+
+    // Pipe-separated style like "1428|1430"
+    const combinedStyle = (ballotStyleRow?.BallotStyle ??
+      ballotStyleRow?.BALLOTSTYLE ??
+      ballotStyleRow?.ballotStyle ??
+      '') as string;
+
+    const [bsdRaw = '', bsrRaw = ''] = (combinedStyle || '').split('|', 2);
+    const BSD = bsdRaw.trim();
+    const BSR = bsrRaw.trim();
+
+    // Interactive sample ballot URLs
+    const demInteractiveUrl = (ballotLinksRow?.DemBallot ??
+      ballotLinksRow?.DEMBALLOT ??
+      ballotLinksRow?.DEM_BALLOT ??
+      '') as string;
+
+    const repInteractiveUrl = (ballotLinksRow?.RepBallot ??
+      ballotLinksRow?.REPBALLOT ??
+      ballotLinksRow?.REP_BALLOT ??
+      '') as string;
+
+    const precinct = (ballotLinksRow?.Precinct ??
+      ballotLinksRow?.PRECINCT ??
+      voterInfo?.PRECINCT ??
+      voterInfo?.Precinct ??
+      '') as string;
+
+    const ballotStyle = {
+      style: combinedStyle ?? '',
+      BSD,
+      BSR,
+      precinct: precinct ?? '',
+      interactiveSampleBallots: {
+        dem: demInteractiveUrl ?? '',
+        rep: repInteractiveUrl ?? ''
+      },
+      // legacy single-link fallback
+      interactiveUrl: (demInteractiveUrl || repInteractiveUrl || '') as string
+    };
+
+    // --- debug info (fixed) ---
     const debugInfo = debug
       ? {
           electionIDEcho: electionID,
           voterIDEcho: voterID,
-          fifthRecordsetKeys: row ? Object.keys(row) : [],
-          fifthRecordsetRow: row ?? null
+          recordsetMeta: (recordsets ?? []).map((rs: any, i: number) => ({
+            i,
+            rows: Array.isArray(rs) ? rs.length : 0,
+            keys: firstRow(rs) ? Object.keys(firstRow(rs)) : []
+          })),
+          ballotStyleRow,
+          ballotLinksRow
         }
       : undefined;
 
