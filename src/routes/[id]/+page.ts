@@ -42,11 +42,24 @@ export const load: PageLoad = async ({ params, url, fetch }) => {
     voterData.ballotStyle && typeof voterData.ballotStyle === 'object'
       ? voterData.ballotStyle
       : {
-          number: '',
+          style: '',
+          BSD: '',
+          BSR: '',
           precinct: '',
-          interactiveUrl:
-            typeof voterData.ballotStyle === 'string' ? voterData.ballotStyle : ''
+          interactiveSampleBallots: { dem: '', rep: '' },
+          interactiveUrl: ''
         };
+  // NEW: party-specific interactive links (primary elections)
+  const demInteractiveHref: string =
+    typeof ballotStyle === 'object'
+      ? (ballotStyle?.interactiveSampleBallots?.dem ?? '')
+      : '';
+
+  const repInteractiveHref: string =
+    typeof ballotStyle === 'object'
+      ? (ballotStyle?.interactiveSampleBallots?.rep ?? '')
+      : '';
+
 
   return {
     voterInfo: voterData.voterInfo,
@@ -54,6 +67,8 @@ export const load: PageLoad = async ({ params, url, fetch }) => {
     stateOfficials: voterData.stateOfficials,
     countyOfficials: voterData.countyOfficials,
     ballotStyle,        // <- has .number, .precinct, .interactiveUrl
+    demInteractiveHref,
+    repInteractiveHref,
     showSampleBallot,
     isPrimary,
     electionID
