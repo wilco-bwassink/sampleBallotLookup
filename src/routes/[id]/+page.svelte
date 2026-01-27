@@ -11,6 +11,8 @@
     showSampleBallot: boolean;
     isPrimary: boolean;
     electionID: string;
+    demInteractiveHref: string;
+    repInteractiveHref: string;
   };
 
   const {
@@ -21,7 +23,9 @@
     ballotStyle,
     showSampleBallot,
     isPrimary,
-    electionID
+    electionID,
+    demInteractiveHref,
+    repInteractiveHref
   } = data;
 
   const hasValidElectionID = !!(electionID && electionID.trim() !== '');
@@ -38,16 +42,33 @@
          '');
 
   // Style number (for later PDF work; safe to keep here):
+  // General style (if you still need it for BS{style}.pdf)
   const styleNumber: string =
     typeof ballotStyle === 'object'
-      ? (ballotStyle?.number ?? ballotStyle?.BallotStyleNumber ?? '')
+      ? (ballotStyle?.number ??
+         ballotStyle?.BallotStyleNumber ??
+         ballotStyle?.BSD ??        // fallback
+         ballotStyle?.BSR ??        // fallback
+         '')
+      : '';
+
+  // ✅ NEW: party-specific style numbers
+  const bsdNumber: string =
+    typeof ballotStyle === 'object'
+      ? (ballotStyle?.BSD ?? '')
+      : '';
+
+  const bsrNumber: string =
+    typeof ballotStyle === 'object'
+      ? (ballotStyle?.BSR ?? '')
       : '';
 
   // ---- Build URLs synchronously (SSR-safe). You can ignore these for now. ----
   const root = `${assets}/sampleballots`;
   const pdfUrl   = styleNumber ? `${root}/BS${styleNumber}.pdf` : null;            // change to `${root}/${styleNumber}.pdf` if no "BS" prefix
-  const demPdfUrl = styleNumber && isPrimary ? `${root}/BS${styleNumber}_DEM.pdf` : null;
-  const repPdfUrl = styleNumber && isPrimary ? `${root}/BS${styleNumber}_REP.pdf` : null;
+  const demPdfUrl = bsdNumber && isPrimary ? `${root}/BSD${bsdNumber}.pdf` : null; //Legacy link `${root}/BS${styleNumber}_DEM.pdf`
+  const repPdfUrl = bsrNumber && isPrimary ? `${root}/BSR${bsrNumber}.pdf` : null; //Legacy link `${root}/BS${styleNumber}_REP.pdf`
+  console.log(`Interactive URL${interactiveHref}, Style # ${styleNumber}, Dem PDF URL ${demPdfUrl}, Rep PDF URL${repPdfUrl}`);
 </script>
 
 <header>
@@ -115,9 +136,9 @@
 
           <div>
             <strong>PDF Democrat Sample Ballot:</strong>
-            {#if styleNumber}
+            {#if bsdNumber}
               <a href={demPdfUrl} target="_blank" rel="noopener">
-                View PDF (style {styleNumber})
+                View PDF (style {bsdNumber})
               </a>
             {:else}
               <span>Not available</span>
@@ -126,8 +147,8 @@
 
           <div>
             <strong>Interactive Democrat Sample Ballot:</strong>
-            {#if interactiveHref}
-              <a href={interactiveHref} target="_blank" rel="noopener">Web Ballot</a>
+            {#if demInteractiveHref}
+              <a href={demInteractiveHref} target="_blank" rel="noopener">Web Ballot</a>
             {:else}
               <span>Not available</span>
             {/if}
@@ -135,9 +156,9 @@
 
           <div>
             <strong>PDF Republican Sample Ballot:</strong>
-            {#if styleNumber}
+            {#if bsrNumber}
               <a href={repPdfUrl} target="_blank" rel="noopener">
-                View PDF (style {styleNumber})
+                View PDF (style {bsrNumber})
               </a>
             {:else}
               <span>Not available</span>
@@ -146,8 +167,8 @@
 
           <div>
             <strong>Interactive Republican Sample Ballot:</strong>
-            {#if interactiveHref}
-              <a href={interactiveHref} target="_blank" rel="noopener">Web Ballot</a>
+            {#if repInteractiveHref}
+              <a href={repInteractiveHref} target="_blank" rel="noopener">Web Ballot</a>
             {:else}
               <span>Not available</span>
             {/if}
