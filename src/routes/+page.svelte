@@ -61,8 +61,8 @@
   onMount(async () => {
     try {
       const [res, settingsRes] = await Promise.all([
-        fetch('http://dev.wilco.org/voterlookup/api/proxy-election-data'),
-        fetch('http://dev.wilco.org/voterlookup/api/proxy-admin-settings')
+        fetch('https://apps.wilcotx.gov/elections/voterlookup/api/proxy-election-data'),
+        fetch('https://apps.wilcotx.gov/elections/voterlookup/api/proxy-admin-settings')
       ]);
       const [data, settingsJson] = await Promise.all([res.json(), settingsRes.json()]);
       settings = settingsJson || settings;
@@ -120,7 +120,7 @@
     }
 
     try {
-      const res = await fetch('http://dev.wilco.org/voterlookup/api/voter-search', {
+      const res = await fetch('https://apps.wilcotx.gov/elections/voterlookup/api/voter-search', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(payload)
@@ -141,7 +141,7 @@
       } else {
         showToast('No matching voters found', 2500);
       }
-      console.log('Search results:', data);
+      // console.log('Search results:', data);
     } catch (err) {
       console.error('Search failed:', err);
       alert('Search request failed. Please try again.');
@@ -149,7 +149,7 @@
   }
 
   // debug
-  $: console.log('locale=', $locale, 'loading=', $isLoading, 'title=', $t('site.title'));
+  // $: console.log('locale=', $locale, 'loading=', $isLoading, 'title=', $t('site.title'));
 </script>
 
 {#if ready}
@@ -243,7 +243,7 @@
 
   <div class="bottomLinks">
     <!-- <a href="#">{$t('nav.newSearch')}</a> -->
-    <a href="http://www.wilcotx.gov/elections">{$t('nav.electionsLink')}</a>
+    <a href="https://www.wilcotx.gov/elections">{$t('nav.electionsLink')}</a>
   </div>
 
   {#if searchResults.length > 0}
@@ -254,7 +254,7 @@
           <li class="voterDetails">
             <p class="voterInfo">
               <a
-                href={`http://dev.wilco.org/voterlookup/${voter.IDNUMBER}?electionID=${selectedElection}`}
+                href={`https://apps.wilcotx.gov/elections/voterlookup/${voter.IDNUMBER}?electionID=${selectedElection}`}
                 target="_blank"
                 rel="noopener noreferrer"
               >{voter.NAME}</a>

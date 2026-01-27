@@ -9,13 +9,13 @@ export const load: PageLoad = async ({ params, url, fetch }) => {
   if (!electionID) throw error(400, 'Missing electionID');
 
   const [voterRes, settingsRes, statusRes] = await Promise.all([
-    fetch('http://dev.wilco.org/voterlookup/api/voter-details', {
+    fetch('https://apps.wilcotx.gov/elections/voterlookup/api/voter-details', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ voterID, electionID })
     }),
-    fetch('http://dev.wilco.org/voterlookup/api/proxy-admin-settings'),
-    fetch('http://dev.wilco.org/voterlookup/api/proxy-election-data')
+    fetch('https://apps.wilcotx.gov/elections/voterlookup/api/proxy-admin-settings'),
+    fetch('https://apps.wilcotx.gov/elections/voterlookup/api/proxy-election-data')
   ]);
 
   if (!voterRes.ok) throw error(500, `Failed to load voter details: ${await voterRes.text()}`);
