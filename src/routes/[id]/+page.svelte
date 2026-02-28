@@ -13,6 +13,8 @@
     electionID: string;
     demInteractiveHref: string;
     repInteractiveHref: string;
+    precinctKey: string;
+    precinctPollingPlace: any;
   };
 
   const {
@@ -25,7 +27,9 @@
     isPrimary,
     electionID,
     demInteractiveHref,
-    repInteractiveHref
+    repInteractiveHref,
+    precinctKey,
+    precinctPollingPlace
   } = data;
 
   const hasValidElectionID = !!(electionID && electionID.trim() !== '');
@@ -135,10 +139,10 @@
           <h2>{$t('nav.sampleBallot')}</h2>
 
           <div>
-            <strong>PDF Democrat Sample Ballot:</strong>
+            <strong>{$t('nav.pdfDemSampleBallot')}:</strong>
             {#if bsdNumber}
               <a href={demPdfUrl} target="_blank" rel="noopener">
-                View PDF (style {bsdNumber})
+                {$t('nav.viewPDF')} {bsdNumber})
               </a>
             {:else}
               <span>Not available</span>
@@ -146,19 +150,19 @@
           </div>
 
           <div>
-            <strong>Interactive Democrat Sample Ballot:</strong>
+            <strong>{$t('nav.intDemSampleBallot')}:</strong>
             {#if demInteractiveHref}
-              <a href={demInteractiveHref} target="_blank" rel="noopener">Web Ballot</a>
+              <a href={demInteractiveHref} target="_blank" rel="noopener">{$t('nav.webBallot')}</a>
             {:else}
               <span>Not available</span>
             {/if}
           </div>
 
           <div>
-            <strong>PDF Republican Sample Ballot:</strong>
+            <strong>{$t('nav.pdfRepSampleBallot')}:</strong>
             {#if bsrNumber}
               <a href={repPdfUrl} target="_blank" rel="noopener">
-                View PDF (style {bsrNumber})
+                {$t('nav.viewPDF')} {bsrNumber})
               </a>
             {:else}
               <span>Not available</span>
@@ -166,15 +170,32 @@
           </div>
 
           <div>
-            <strong>Interactive Republican Sample Ballot:</strong>
+            <strong>{$t('nav.intRepSampleBallot')}:</strong>
             {#if repInteractiveHref}
-              <a href={repInteractiveHref} target="_blank" rel="noopener">Web Ballot</a>
+              <a href={repInteractiveHref} target="_blank" rel="noopener">{$t('nav.webBallot')}</a>
             {:else}
               <span>Not available</span>
             {/if}
           </div>
         </section>
       {/if}
+    {/if}
+    {#if showPrimaryElection}
+      <section id="edPollingLocations">
+        <h2>{$t('nav.pollingPlaces')}</h2>
+        <p>
+          <strong>{$t('nav.pollingPlacesDem')}:</strong><br />
+          {precinctPollingPlace.democratic.site},
+          {precinctPollingPlace.democratic.address},
+          {precinctPollingPlace.democratic.city}
+        </p>
+        <p>
+          <strong>{$t('nav.pollingPlacesRep')}:</strong><br />
+          {precinctPollingPlace.republican.site},
+          {precinctPollingPlace.republican.address},
+          {precinctPollingPlace.republican.city}
+        </p>
+      </section>
     {/if}
   </div>
 

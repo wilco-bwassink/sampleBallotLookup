@@ -1,0 +1,2126 @@
+{
+  "116": {
+    "republican": {
+      "city": "Austin",
+      "site": "Anderson Mill Limited District",
+      "address": "11500 El Salido Pkwy, Room B"
+    },
+    "democratic": {
+      "city": "Cedar Park",
+      "site": "Lakeline Oaks MUD",
+      "address": "1000 Old Mill Rd, Board Room"
+    }
+  },
+  "117": {
+    "republican": {
+      "city": "Austin",
+      "site": "Kelly Reeves Athletic Complex",
+      "address": "10211 W Parmer Ln, Conference Room"
+    },
+    "democratic": {
+      "city": "Austin",
+      "site": "St. Vincent De Paul Catholic Church",
+      "address": "9500 Neenah Ave, Portables 1 & 2"
+    }
+  },
+  "118": {
+    "republican": {
+      "city": "Austin",
+      "site": "Anderson Mill Limited District",
+      "address": "11500 El Salido Pkwy, Room B"
+    },
+    "democratic": {
+      "city": "Austin",
+      "site": "Anderson Mill Limited District",
+      "address": "11500 El Salido Pkwy, Room A"
+    }
+  },
+  "119": {
+    "republican": {
+      "city": "Round Rock",
+      "site": "Old Town Elementary",
+      "address": "2200 Chaparral Dr, Science Lab"
+    },
+    "democratic": {
+      "city": "Round Rock",
+      "site": "Old Town Elementary",
+      "address": "2200 Chaparral Dr, Science Lab"
+    }
+  },
+  "123": {
+    "republican": {
+      "city": "Round Rock",
+      "site": "Old Town Elementary",
+      "address": "2200 Chaparral Dr, Science Lab"
+    },
+    "democratic": {
+      "city": "Round Rock",
+      "site": "Allen R Baca Center",
+      "address": "301 W Bagdad Ave, Meeting Room 2"
+    }
+  },
+  "135": {
+    "republican": {
+      "city": "Round Rock",
+      "site": "Sleep Inn and Suites",
+      "address": "1980 S IH 35, Meeting Room"
+    },
+    "democratic": {
+      "city": "Round Rock",
+      "site": "Sleep Inn and Suites",
+      "address": "1980 S IH 35, Meeting Room"
+    }
+  },
+  "136": {
+    "republican": {
+      "city": "Round Rock",
+      "site": "Sleep Inn and Suites",
+      "address": "1980 S IH 35, Meeting Room"
+    },
+    "democratic": {
+      "city": "Round Rock",
+      "site": "Sleep Inn and Suites",
+      "address": "1980 S IH 35, Meeting Room"
+    }
+  },
+  "138": {
+    "republican": {
+      "city": "Round Rock",
+      "site": "Sleep Inn and Suites",
+      "address": "1980 S IH 35, Meeting Room"
+    },
+    "democratic": {
+      "city": "Austin",
+      "site": "Preserve at Rolling Oaks",
+      "address": "15450 FM 1325, Resident Lounge"
+    }
+  },
+  "139": {
+    "republican": {
+      "city": "Round Rock",
+      "site": "San Gabriel Rehab and Care Center",
+      "address": "4100 College Park Dr, Dining Room"
+    },
+    "democratic": {
+      "city": "Round Rock",
+      "site": "Texas State Round Rock",
+      "address": "1555 University Blvd, Avery Building Room 256"
+    }
+  },
+  "143": {
+    "republican": {
+      "city": "Round Rock",
+      "site": "Home2 Suites Bldg. 2",
+      "address": "425 E University Blvd, Meeting Space"
+    },
+    "democratic": {
+      "city": "Round Rock",
+      "site": "Wilco Jester Annex",
+      "address": "1801 E Old Settlers Blvd, Anderson & Harrell Room"
+    }
+  },
+  "144": {
+    "republican": {
+      "city": "Round Rock",
+      "site": "Wilco Jester Annex",
+      "address": "1801 E Old Settlers Blvd, Anderson & Harrell Room"
+    },
+    "democratic": {
+      "city": "Round Rock",
+      "site": "Waterloo Swimming",
+      "address": "751 Phillip Warner Pl, Classroom"
+    }
+  },
+  "145": {
+    "republican": {
+      "city": "Round Rock",
+      "site": "Wilco Jester Annex",
+      "address": "1801 E Old Settlers Blvd, Anderson & Harrell Room"
+    },
+    "democratic": {
+      "city": "Round Rock",
+      "site": "Wilco Jester Annex",
+      "address": "1801 E Old Settlers Blvd, Anderson & Harrell Room"
+    }
+  },
+  "146": {
+    "republican": {
+      "city": "Austin",
+      "site": "Pinballz Lake Creek",
+      "address": "13729 Research Blvd, Purple Room"
+    },
+    "democratic": {
+      "city": "Austin",
+      "site": "Anderson Mill Limited District",
+      "address": "11500 El Salido Pkwy, Room A"
+    }
+  },
+  "147": {
+    "republican": {
+      "city": "Austin",
+      "site": "Pinballz Lake Creek",
+      "address": "13729 Research Blvd, Purple Room"
+    },
+    "democratic": {
+      "city": "Austin",
+      "site": "Anderson Mill Limited District",
+      "address": "11500 El Salido Pkwy, Room A"
+    }
+  },
+  "149": {
+    "republican": {
+      "city": "Round Rock Bldg. 2",
+      "site": "Home2 Suites",
+      "address": "425 E University Blvd, Meeting Space"
+    },
+    "democratic": {
+      "city": "Round Rock",
+      "site": "Wilco Jester Annex",
+      "address": "1801 E Old Settlers Blvd, Anderson & Harrell Room"
+    }
+  },
+  "150": {
+    "republican": {
+      "city": "Round Rock",
+      "site": "Allen R Baca Center",
+      "address": "301 W Bagdad Ave, Bldg 2, Meeting Room 3"
+    },
+    "democratic": {
+      "city": "Round Rock",
+      "site": "Allen R Baca Center",
+      "address": "301 W Bagdad Ave, Meeting Room 2"
+    }
+  },
+  "151": {
+    "republican": {
+      "city": "Austin",
+      "site": "Raymond E. Hartfield Performing Arts Center",
+      "address": "5800 McNeil Dr, Lobby"
+    },
+    "democratic": {
+      "city": "Austin",
+      "site": "Anderson Mill Limited District",
+      "address": "11500 El Salido Pkwy, Room A"
+    }
+  },
+  "155": {
+    "republican": {
+      "city": "Round Rock",
+      "site": "Allen R Baca Center",
+      "address": "301 W Bagdad Ave, Bldg 2, Meeting Room 3"
+    },
+    "democratic": {
+      "city": "Round Rock",
+      "site": "Grace Presbyterian Church",
+      "address": "1705 Gattis School Rd, Sanctuary"
+    }
+  },
+  "161": {
+    "republican": {
+      "city": "Austin",
+      "site": "Raymond E. Hartfield Performing Arts Center",
+      "address": "5800 McNeil Dr, Lobby"
+    },
+    "democratic": {
+      "city": "Austin",
+      "site": "Anderson Mill Limited District",
+      "address": "11500 El Salido Pkwy, Room A"
+    }
+  },
+  "162": {
+    "republican": {
+      "city": "Austin",
+      "site": "Raymond E. Hartfield Performing Arts Center",
+      "address": "5800 McNeil Dr, Lobby"
+    },
+    "democratic": {
+      "city": "Austin",
+      "site": "Spicewood Springs Library",
+      "address": "8637 Spicewood Springs Rd, The Reading Room"
+    }
+  },
+  "163": {
+    "republican": {
+      "city": "Round Rock",
+      "site": "Round Rock Randalls",
+      "address": "2051 Gattis School Rd, Deli Seating Area"
+    },
+    "democratic": {
+      "city": "Round Rock",
+      "site": "Cedar Ridge High School",
+      "address": "2801 Gattis School Rd, Auditorium"
+    }
+  },
+  "164": {
+    "republican": {
+      "city": "Round Rock",
+      "site": "Round Rock Randalls",
+      "address": "2051 Gattis School Rd, Deli Seating Area"
+    },
+    "democratic": {
+      "city": "Round Rock",
+      "site": "Cedar Ridge High School",
+      "address": "2801 Gattis School Rd, Auditorium"
+    }
+  },
+  "166": {
+    "republican": {
+      "city": "Austin",
+      "site": "Kelly Reeves Athletic Complex",
+      "address": "10211 W Parmer Ln, Conference Room"
+    },
+    "democratic": {
+      "city": "Cedar Park",
+      "site": "Lakeline Oaks MUD",
+      "address": "1000 Old Mill Rd, Board Room"
+    }
+  },
+  "173": {
+    "republican": {
+      "city": "Austin",
+      "site": "Anderson Mill Limited District",
+      "address": "11500 El Salido Pkwy, Room B"
+    },
+    "democratic": {
+      "city": "Cedar Park",
+      "site": "Lakeline Oaks MUD",
+      "address": "1000 Old Mill Rd, Board Room"
+    }
+  },
+  "174": {
+    "republican": {
+      "city": "Austin",
+      "site": "Anderson Mill Limited District",
+      "address": "11500 El Salido Pkwy, Room B"
+    },
+    "democratic": {
+      "city": "Austin",
+      "site": "Anderson Mill Limited District",
+      "address": "11500 El Salido Pkwy, Room A"
+    }
+  },
+  "175": {
+    "republican": {
+      "city": "Austin",
+      "site": "Pinballz Lake Creek",
+      "address": "13729 Research Blvd, Purple Room"
+    },
+    "democratic": {
+      "city": "Austin",
+      "site": "Spicewood Springs Library",
+      "address": "8637 Spicewood Springs Rd, The Reading Room"
+    }
+  },
+  "180": {
+    "republican": {
+      "city": "Round Rock",
+      "site": "Round Rock Randalls",
+      "address": "2051 Gattis School Rd, Deli Seating Area"
+    },
+    "democratic": {
+      "city": "Round Rock",
+      "site": "Allen R Baca Center",
+      "address": "301 W Bagdad Ave, Meeting Room 2"
+    }
+  },
+  "181": {
+    "republican": {
+      "city": "Hutto",
+      "site": "Rushcreek at Star Ranch",
+      "address": "350 Star Ranch Blvd, Clubhouse"
+    },
+    "democratic": {
+      "city": "Round Rock",
+      "site": "Gospel Fellowship Austin",
+      "address": "3760 Gattis School Rd, Main Sanctuary"
+    }
+  },
+  "182": {
+    "republican": {
+      "city": "Round Rock",
+      "site": "Old Town Elementary",
+      "address": "2200 Chaparral Dr, Science Lab"
+    },
+    "democratic": {
+      "city": "Round Rock",
+      "site": "Old Town Elementary",
+      "address": "2200 Chaparral Dr, Science Lab"
+    }
+  },
+  "184": {
+    "republican": {
+      "city": "Round Rock",
+      "site": "San Gabriel Rehab and Care Center",
+      "address": "4100 College Park Dr, Dining Room"
+    },
+    "democratic": {
+      "city": "Round Rock",
+      "site": "Texas State Round Rock",
+      "address": "1555 University Blvd, Avery Building Room 256"
+    }
+  },
+  "186": {
+    "republican": {
+      "city": "Round Rock",
+      "site": "MCI Austin",
+      "address": "425 Round Rock Dr W, Main Sanctuary"
+    },
+    "democratic": {
+      "city": "Austin",
+      "site": "St. Vincent De Paul Catholic Church",
+      "address": "9500 Neenah Ave, Portables 1 & 2"
+    }
+  },
+  "189": {
+    "republican": {
+      "city": "Austin",
+      "site": "Kelly Reeves Athletic Complex",
+      "address": "10211 W Parmer Ln, Conference Room"
+    },
+    "democratic": {
+      "city": "Austin",
+      "site": "St. Vincent De Paul Catholic Church",
+      "address": "9500 Neenah Ave, Portables 1 & 2"
+    }
+  },
+  "191": {
+    "republican": {
+      "city": "Round Rock",
+      "site": "Wilco Jester Annex",
+      "address": "1801 E Old Settlers Blvd, Anderson & Harrell Room"
+    },
+    "democratic": {
+      "city": "Round Rock",
+      "site": "Waterloo Swimming",
+      "address": "751 Phillip Warner Pl, Classroom"
+    }
+  },
+  "192": {
+    "republican": {
+      "city": "Round Rock",
+      "site": "Wilco Jester Annex",
+      "address": "1801 E Old Settlers Blvd, Anderson & Harrell Room"
+    },
+    "democratic": {
+      "city": "Round Rock",
+      "site": "Waterloo Swimming",
+      "address": "751 Phillip Warner Pl, Classroom"
+    }
+  },
+  "198": {
+    "republican": {
+      "city": "Round Rock",
+      "site": "MCI Austin",
+      "address": "425 Round Rock Dr W, Main Sanctuary"
+    },
+    "democratic": {
+      "city": "Austin",
+      "site": "St. Vincent De Paul Catholic Church",
+      "address": "9500 Neenah Ave, Portables 1 & 2"
+    }
+  },
+  "201": {
+    "republican": {
+      "city": "Leander",
+      "site": "First Baptist Church Leander",
+      "address": "10000 FM 2243, Gymnasium"
+    },
+    "democratic": {
+      "city": "Cedar Park",
+      "site": "Islamic Center",
+      "address": "1950 Brushy Creek Rd, Education & Activity Center"
+    }
+  },
+  "202": {
+    "republican": {
+      "city": "Leander",
+      "site": "First Baptist Church Leander",
+      "address": "10000 FM 2243, Gymnasium"
+    },
+    "democratic": {
+      "city": "Cedar Park",
+      "site": "The Springs Healthcare",
+      "address": "1500 Cottonwood Creek Trl, Lobby"
+    }
+  },
+  "203": {
+    "republican": {
+      "city": "Leander",
+      "site": "First Baptist Church Leander",
+      "address": "10000 FM 2243, Gymnasium"
+    },
+    "democratic": {
+      "city": "Cedar Park",
+      "site": "Islamic Center",
+      "address": "1950 Brushy Creek Rd, Education & Activity Center"
+    }
+  },
+  "204": {
+    "republican": {
+      "city": "Cedar Park",
+      "site": "Cedar Park Randalls",
+      "address": "1400 Cypress Creek Rd, Deli Seating Area"
+    },
+    "democratic": {
+      "city": "Cedar Park",
+      "site": "Islamic Center",
+      "address": "1950 Brushy Creek Rd, Education & Activity Center"
+    }
+  },
+  "205": {
+    "republican": {
+      "city": "Cedar Park",
+      "site": "Cedar Park Randalls",
+      "address": "1400 Cypress Creek Rd, Deli Seating Area"
+    },
+    "democratic": {
+      "city": "Cedar Park",
+      "site": "Islamic Center",
+      "address": "1950 Brushy Creek Rd, Education & Activity Center"
+    }
+  },
+  "206": {
+    "republican": {
+      "city": "Liberty Hill",
+      "site": "Wilco Cowboy Church",
+      "address": "8355 Ranch Road 1869, Inner Foyer"
+    },
+    "democratic": {
+      "city": "Liberty Hill",
+      "site": "Liberty Hill Gym Annex",
+      "address": "301 Forrest St, Annex Gym"
+    }
+  },
+  "207": {
+    "republican": {
+      "city": "Liberty Hill",
+      "site": "Lone Star Oaks",
+      "address": "3354 County Road 236, Main Ballroom"
+    },
+    "democratic": {
+      "city": "Liberty Hill",
+      "site": "Moonshine Yoga",
+      "address": "15050 W SH 29, Yoga Room"
+    }
+  },
+  "208": {
+    "republican": {
+      "city": "Liberty Hill",
+      "site": "Wilco Cowboy Church",
+      "address": "8355 Ranch Road 1869, Inner Foyer"
+    },
+    "democratic": {
+      "city": "Liberty Hill",
+      "site": "Liberty Hill Gym Annex",
+      "address": "301 Forrest St, Annex Gym"
+    }
+  },
+  "209": {
+    "republican": {
+      "city": "Liberty Hill",
+      "site": "Vintage Church Liberty Hill",
+      "address": "170 County Road 214, Elementary Classroom"
+    },
+    "democratic": {
+      "city": "Liberty Hill",
+      "site": "Moonshine Yoga",
+      "address": "15050 W SH 29, Yoga Room"
+    }
+  },
+  "210": {
+    "republican": {
+      "city": "Liberty Hill",
+      "site": "Santa Rita Ranch",
+      "address": "175 Elizabeth Park Blvd, Great Room"
+    },
+    "democratic": {
+      "city": "Liberty Hill",
+      "site": "Santa Rita Ranch",
+      "address": "175 Elizabeth Park Blvd, Great Room"
+    }
+  },
+  "211": {
+    "republican": {
+      "city": "Liberty Hill",
+      "site": "Union Hall Baptist",
+      "address": "301 Seward Junction Lp, Education Bldg/Fellowship Hall"
+    },
+    "democratic": {
+      "city": "Liberty Hill",
+      "site": "Santa Rita Ranch",
+      "address": "175 Elizabeth Park Blvd, Great Room"
+    }
+  },
+  "212": {
+    "republican": {
+      "city": "Liberty Hill",
+      "site": "Kitfox’s Fun Center",
+      "address": "350 County Road 277, Main Lobby"
+    },
+    "democratic": {
+      "city": "Liberty Hill",
+      "site": "Moonshine Yoga",
+      "address": "15050 W SH 29, Yoga Room"
+    }
+  },
+  "216": {
+    "republican": {
+      "city": "Austin",
+      "site": "Anderson Mill Limited District",
+      "address": "11500 El Salido Pkwy, Room B"
+    },
+    "democratic": {
+      "city": "Austin",
+      "site": "ACC Cypress Creek",
+      "address": "1555 Cypress Creek Rd, Bldg 1000, Room 1102"
+    }
+  },
+  "229": {
+    "republican": {
+      "city": "Leander",
+      "site": "First Baptist Church Leander",
+      "address": "10000 FM 2243, Gymnasium"
+    },
+    "democratic": {
+      "city": "Cedar Park",
+      "site": "The Springs Healthcare",
+      "address": "1500 Cottonwood Creek Trl, Lobby"
+    }
+  },
+  "230": {
+    "republican": {
+      "city": "Cedar Park",
+      "site": "Cedar Park Recreation Center",
+      "address": "1435 Main St, San Gabriel Room"
+    },
+    "democratic": {
+      "city": "Cedar Park",
+      "site": "Cedar Park Recreation Center",
+      "address": "1435 Main St, San Gabriel Room"
+    }
+  },
+  "231": {
+    "republican": {
+      "city": "Leander",
+      "site": "First Baptist Church Leander",
+      "address": "10000 FM 2243, Gymnasium"
+    },
+    "democratic": {
+      "city": "Leander",
+      "site": "Pleasant Hill Elementary School",
+      "address": "1800 Horizon Park, Portable C01"
+    }
+  },
+  "243": {
+    "republican": {
+      "city": "Georgetown",
+      "site": "Cimarron Hills Sales Office",
+      "address": "103 Cimarron Hills Trail West, Main Room"
+    },
+    "democratic": {
+      "city": "Liberty Hill",
+      "site": "Santa Rita Ranch",
+      "address": "175 Elizabeth Park Blvd, Great Room"
+    }
+  },
+  "244": {
+    "republican": {
+      "city": "Liberty Hill",
+      "site": "Santa Rita Ranch",
+      "address": "175 Elizabeth Park Blvd, Great Room"
+    },
+    "democratic": {
+      "city": "Liberty Hill",
+      "site": "Santa Rita Ranch",
+      "address": "175 Elizabeth Park Blvd, Great Room"
+    }
+  },
+  "245": {
+    "republican": {
+      "city": "Georgetown",
+      "site": "Cimarron Hills Sales Office",
+      "address": "103 Cimarron Hills Trail West, Main Room"
+    },
+    "democratic": {
+      "city": "Liberty Hill",
+      "site": "Santa Rita Ranch",
+      "address": "175 Elizabeth Park Blvd, Great Room"
+    }
+  },
+  "246": {
+    "republican": {
+      "city": "Liberty Hill",
+      "site": "Santa Rita Ranch",
+      "address": "175 Elizabeth Park Blvd, Great Room"
+    },
+    "democratic": {
+      "city": "Liberty Hill",
+      "site": "Santa Rita Ranch",
+      "address": "175 Elizabeth Park Blvd, Great Room"
+    }
+  },
+  "250": {
+    "republican": {
+      "city": "Liberty Hill",
+      "site": "Union Hall Baptist",
+      "address": "301 Seward Junction Lp, Education Bldg/Fellowship Hall"
+    },
+    "democratic": {
+      "city": "Liberty Hill",
+      "site": "Santa Rita Ranch",
+      "address": "175 Elizabeth Park Blvd, Great Room"
+    }
+  },
+  "251": {
+    "republican": {
+      "city": "Leander",
+      "site": "Leander Public Library",
+      "address": "1011 S Bagdad Rd, Annex Building"
+    },
+    "democratic": {
+      "city": "Liberty Hill",
+      "site": "Liberty Hill Gym Annex",
+      "address": "301 Forrest St, Annex Gym"
+    }
+  },
+  "252": {
+    "republican": {
+      "city": "Leander",
+      "site": "Arista San Gabriel Model Home",
+      "address": "2305 Whistling Duck Dr, Model Home"
+    },
+    "democratic": {
+      "city": "Cedar Park",
+      "site": "The Springs Healthcare",
+      "address": "1500 Cottonwood Creek Trl, Lobby"
+    }
+  },
+  "253": {
+    "republican": {
+      "city": "Leander",
+      "site": "Leander Randalls",
+      "address": "3441 N Lakeline Blvd, Deli Seating Area"
+    },
+    "democratic": {
+      "city": "Leander",
+      "site": "Leander Senior Activity Center",
+      "address": "709 Municipal Dr, Election Room"
+    }
+  },
+  "254": {
+    "republican": {
+      "city": "Cedar Park",
+      "site": "Cedar Park Randalls",
+      "address": "1400 Cypress Creek Rd, Deli Seating Area"
+    },
+    "democratic": {
+      "city": "Cedar Park",
+      "site": "Cedar Park Recreation Center",
+      "address": "1435 Main St, San Gabriel Room"
+    }
+  },
+  "255": {
+    "republican": {
+      "city": "Leander",
+      "site": "ACC San Gabriel",
+      "address": "449 San Gabriel Campus Dr, Multi-Purpose Room 1125"
+    },
+    "democratic": {
+      "city": "Liberty Hill",
+      "site": "Liberty Hill Gym Annex",
+      "address": "301 Forrest St, Annex Gym"
+    }
+  },
+  "256": {
+    "republican": {
+      "city": "Leander",
+      "site": "Leander Public Library",
+      "address": "1011 S Bagdad Rd, Annex Building"
+    },
+    "democratic": {
+      "city": "Liberty Hill",
+      "site": "Liberty Hill Gym Annex",
+      "address": "301 Forrest St, Annex Gym"
+    }
+  },
+  "257": {
+    "republican": {
+      "city": "Leander",
+      "site": "ACC San Gabriel",
+      "address": "449 San Gabriel Campus Dr, Multi-Purpose Room 1125"
+    },
+    "democratic": {
+      "city": "Liberty Hill",
+      "site": "Liberty Hill Gym Annex",
+      "address": "301 Forrest St, Annex Gym"
+    }
+  },
+  "258": {
+    "republican": {
+      "city": "Leander",
+      "site": "ACC San Gabriel",
+      "address": "449 San Gabriel Campus Dr, Multi-Purpose Room 1125"
+    },
+    "democratic": {
+      "city": "Liberty Hill",
+      "site": "Liberty Hill Gym Annex",
+      "address": "301 Forrest St, Annex Gym"
+    }
+  },
+  "259": {
+    "republican": {
+      "city": "Leander",
+      "site": "Arista San Gabriel Model Home",
+      "address": "2305 Whistling Duck Dr, Model Home"
+    },
+    "democratic": {
+      "city": "Leander",
+      "site": "Park at Crystal Falls",
+      "address": "7860 183A, Phase 2 Clubhouse"
+    }
+  },
+  "260": {
+    "republican": {
+      "city": "Leander",
+      "site": "Arista San Gabriel Model Home",
+      "address": "2305 Whistling Duck Dr, Model Home"
+    },
+    "democratic": {
+      "city": "Leander",
+      "site": "Park at Crystal Falls",
+      "address": "7860 183A, Phase 2 Clubhouse"
+    }
+  },
+  "261": {
+    "republican": {
+      "city": "Leander",
+      "site": "Leander Public Library",
+      "address": "1011 S Bagdad Rd, Annex Building"
+    },
+    "democratic": {
+      "city": "Leander",
+      "site": "Leander Senior Activity Center",
+      "address": "709 Municipal Dr, Election Room"
+    }
+  },
+  "262": {
+    "republican": {
+      "city": "Leander",
+      "site": "First Baptist Church Leander",
+      "address": "10000 FM 2243, Gymnasium"
+    },
+    "democratic": {
+      "city": "Leander",
+      "site": "Leander Senior Activity Center",
+      "address": "709 Municipal Dr, Election Room"
+    }
+  },
+  "263": {
+    "republican": {
+      "city": "Leander",
+      "site": "Leander Public Library",
+      "address": "1011 S Bagdad Rd, Annex Building"
+    },
+    "democratic": {
+      "city": "Leander",
+      "site": "Leander Senior Activity Center",
+      "address": "709 Municipal Dr, Election Room"
+    }
+  },
+  "264": {
+    "republican": {
+      "city": "Leander",
+      "site": "Leander Randalls",
+      "address": "3441 N Lakeline Blvd, Deli Seating Area"
+    },
+    "democratic": {
+      "city": "Leander",
+      "site": "Leander Senior Activity Center",
+      "address": "709 Municipal Dr, Election Room"
+    }
+  },
+  "265": {
+    "republican": {
+      "city": "Leander",
+      "site": "ACC San Gabriel",
+      "address": "449 San Gabriel Campus Dr, Multi-Purpose Room 1125"
+    },
+    "democratic": {
+      "city": "Liberty Hill",
+      "site": "Liberty Hill Gym Annex",
+      "address": "301 Forrest St, Annex Gym"
+    }
+  },
+  "266": {
+    "republican": {
+      "city": "Cedar Park",
+      "site": "Cedar Park Randalls",
+      "address": "1400 Cypress Creek Rd, Deli Seating Area"
+    },
+    "democratic": {
+      "city": "Cedar Park",
+      "site": "ACC Cypress Creek",
+      "address": "1555 Cypress Creek Rd, Bldg 1000, Room 1102"
+    }
+  },
+  "267": {
+    "republican": {
+      "city": "Leander",
+      "site": "Arista San Gabriel Model Home",
+      "address": "2305 Whistling Duck Dr, Model Home"
+    },
+    "democratic": {
+      "city": "Liberty Hill",
+      "site": "Santa Rita Ranch",
+      "address": "175 Elizabeth Park Blvd, Great Room"
+    }
+  },
+  "276": {
+    "republican": {
+      "city": "Cedar Park",
+      "site": "ACC Cypress Creek",
+      "address": "1555 Cypress Creek Rd, Bldg 1000, Room 1102"
+    },
+    "democratic": {
+      "city": "Cedar Park",
+      "site": "ACC Cypress Creek",
+      "address": "1555 Cypress Creek Rd, Bldg 1000, Room 1102"
+    }
+  },
+  "277": {
+    "republican": {
+      "city": "Cedar Park",
+      "site": "ACC Cypress Creek",
+      "address": "1555 Cypress Creek Rd, Bldg 1000, Room 1102"
+    },
+    "democratic": {
+      "city": "Cedar Park",
+      "site": "ACC Cypress Creek",
+      "address": "1555 Cypress Creek Rd, Bldg 1000, Room 1102"
+    }
+  },
+  "278": {
+    "republican": {
+      "city": "Cedar Park",
+      "site": "Treasure of the Hills Senior Center",
+      "address": "408 Ridgewood Dr, TV/Game Room"
+    },
+    "democratic": {
+      "city": "Cedar Park",
+      "site": "ACC Cypress Creek",
+      "address": "1555 Cypress Creek Rd, Bldg 1000, Room 1102"
+    }
+  },
+  "279": {
+    "republican": {
+      "city": "Cedar Park",
+      "site": "ACC Cypress Creek",
+      "address": "1555 Cypress Creek Rd, Bldg 1000, Room 1102"
+    },
+    "democratic": {
+      "city": "Cedar Park",
+      "site": "ACC Cypress Creek",
+      "address": "1555 Cypress Creek Rd, Bldg 1000, Room 1102"
+    }
+  },
+  "283": {
+    "republican": {
+      "city": "Cedar Park",
+      "site": "Cedar Park Recreation Center",
+      "address": "1435 Main St, San Gabriel Room"
+    },
+    "democratic": {
+      "city": "Cedar Park",
+      "site": "Cedar Park Recreation Center",
+      "address": "1435 Main St, San Gabriel Room"
+    }
+  },
+  "284": {
+    "republican": {
+      "city": "Cedar Park",
+      "site": "LISD Child Nutrition Services",
+      "address": "1900 Cougar Country Dr, Room 203"
+    },
+    "democratic": {
+      "city": "Cedar Park",
+      "site": "Cedar Park Recreation Center",
+      "address": "1435 Main St, San Gabriel Room"
+    }
+  },
+  "287": {
+    "republican": {
+      "city": "Cedar Park",
+      "site": "ACC Cypress Creek",
+      "address": "1555 Cypress Creek Rd, Bldg 1000, Room 1102"
+    },
+    "democratic": {
+      "city": "Cedar Park",
+      "site": "Cedar Park Recreation Center",
+      "address": "1435 Main St, San Gabriel Room"
+    }
+  },
+  "301": {
+    "republican": {
+      "city": "Austin",
+      "site": "Patsy Sommer Elementary",
+      "address": "16200 Avery Ranch Blvd, PTA Portable"
+    },
+    "democratic": {
+      "city": "Round Rock",
+      "site": "Brushy Creek MUD",
+      "address": "16318 Great Oaks Dr, Maple Room"
+    }
+  },
+  "302": {
+    "republican": {
+      "city": "Austin",
+      "site": "Patsy Sommer Elementary",
+      "address": "16200 Avery Ranch Blvd, PTA Portable"
+    },
+    "democratic": {
+      "city": "Leander",
+      "site": "Parinama Academy",
+      "address": "14300 Ronald Reagan Blvd Unit 406, Main Hall"
+    }
+  },
+  "303": {
+    "republican": {
+      "city": "Austin",
+      "site": "Patsy Sommer Elementary",
+      "address": "16200 Avery Ranch Blvd, PTA Portable"
+    },
+    "democratic": {
+      "city": "Austin",
+      "site": "Patsy Sommer Elementary",
+      "address": "16200 Avery Ranch Blvd, Portable"
+    }
+  },
+  "305": {
+    "republican": {
+      "city": "Georgetown",
+      "site": "GISD Technology Bldg",
+      "address": "603 Lakeway Dr, Conference Room"
+    },
+    "democratic": {
+      "city": "Georgetown",
+      "site": "Georgetown Fire Station #6",
+      "address": "6700 Williams Dr, Community Room"
+    }
+  },
+  "306": {
+    "republican": {
+      "city": "Georgetown",
+      "site": "Georgetown Randalls",
+      "address": "5721 Williams Dr, Deli Seating Area"
+    },
+    "democratic": {
+      "city": "Georgetown",
+      "site": "Georgetown Fire Station #6",
+      "address": "6700 Williams Dr, Community Room"
+    }
+  },
+  "307": {
+    "republican": {
+      "city": "Georgetown",
+      "site": "GISD Technology Bldg",
+      "address": "603 Lakeway Dr, Conference Room"
+    },
+    "democratic": {
+      "city": "Georgetown",
+      "site": "Georgetown Fire Station #6",
+      "address": "6700 Williams Dr, Community Room"
+    }
+  },
+  "308": {
+    "republican": {
+      "city": "Georgetown",
+      "site": "Georgetown Film Alley",
+      "address": "420 Wolf Ranch Pkwy, Party Room"
+    },
+    "democratic": {
+      "city": "Georgetown",
+      "site": "Georgetown Annex",
+      "address": "100 Wilco Way, HR Training & Conference Room 105"
+    }
+  },
+  "309": {
+    "republican": {
+      "city": "Florence",
+      "site": "Andice Community Center",
+      "address": "6600 FM 970, Main Classroom"
+    },
+    "democratic": {
+      "city": "Florence",
+      "site": "Florence City Hall",
+      "address": "851 FM 970, Council Chambers"
+    }
+  },
+  "310": {
+    "republican": {
+      "city": "Florence",
+      "site": "Andice Community Center",
+      "address": "6600 FM 970, Main Classroom"
+    },
+    "democratic": {
+      "city": "Florence",
+      "site": "Florence City Hall",
+      "address": "851 FM 970, Council Chambers"
+    }
+  },
+  "311": {
+    "republican": {
+      "city": "Jarrell",
+      "site": "Jarrell Memorial Park Community Center",
+      "address": "1651 CR 305, Community Center"
+    },
+    "democratic": {
+      "city": "Georgetown",
+      "site": "Northstar Georgetown",
+      "address": "2401 Westinghouse Rd, Media Room"
+    }
+  },
+  "312": {
+    "republican": {
+      "city": "Florence",
+      "site": "Andice Community Center",
+      "address": "6600 FM 970, Main Classroom"
+    },
+    "democratic": {
+      "city": "Florence",
+      "site": "Florence City Hall",
+      "address": "851 FM 970, Council Chambers"
+    }
+  },
+  "314": {
+    "republican": {
+      "city": "Georgetown",
+      "site": "Georgetown City Hall",
+      "address": "808 Martin Luther King Jr St, Community Room"
+    },
+    "democratic": {
+      "city": "Georgetown",
+      "site": "Georgetown Annex",
+      "address": "100 Wilco Way, HR Training & Conference Room 105"
+    }
+  },
+  "317": {
+    "republican": {
+      "city": "Round Rock",
+      "site": "MCI Austin",
+      "address": "425 Round Rock Dr W, Main Sanctuary"
+    },
+    "democratic": {
+      "city": "Austin",
+      "site": "Ignite Medical Resorts",
+      "address": "16219 RR 620 N, Conference Room"
+    }
+  },
+  "318": {
+    "republican": {
+      "city": "Round Rock",
+      "site": "MCI Austin",
+      "address": "425 Round Rock Dr W, Main Sanctuary"
+    },
+    "democratic": {
+      "city": "Round Rock",
+      "site": "Brushy Creek MUD",
+      "address": "16318 Great Oaks Dr, Maple Room"
+    }
+  },
+  "319": {
+    "republican": {
+      "city": "Round Rock",
+      "site": "Fern Bluff Elementary",
+      "address": "17815 Park Valley Dr"
+    },
+    "democratic": {
+      "city": "Round Rock",
+      "site": "Brushy Creek MUD",
+      "address": "16318 Great Oaks Dr, Maple Room"
+    }
+  },
+  "320": {
+    "republican": {
+      "city": "Austin",
+      "site": "Patsy Sommer Elementary",
+      "address": "16200 Avery Ranch Blvd, PTA Portable"
+    },
+    "democratic": {
+      "city": "Leander",
+      "site": "Parinama Academy",
+      "address": "14300 Ronald Reagan Blvd Unit 406, Main Hall"
+    }
+  },
+  "321": {
+    "republican": {
+      "city": "Round Rock",
+      "site": "Fern Bluff Elementary",
+      "address": "17815 Park Valley Dr"
+    },
+    "democratic": {
+      "city": "Round Rock",
+      "site": "Brushy Creek MUD",
+      "address": "16318 Great Oaks Dr, Maple Room"
+    }
+  },
+  "322": {
+    "republican": {
+      "city": "Round Rock",
+      "site": "Allen R Baca Center",
+      "address": "301 W Bagdad Ave, Bldg 2, Meeting Room 3"
+    },
+    "democratic": {
+      "city": "Austin",
+      "site": "Ignite Medical Resorts",
+      "address": "16219 RR 620 N, Conference Room"
+    }
+  },
+  "323": {
+    "republican": {
+      "city": "Round Rock",
+      "site": "Fern Bluff Elementary",
+      "address": "17815 Park Valley Dr"
+    },
+    "democratic": {
+      "city": "Round Rock",
+      "site": "Brushy Creek MUD",
+      "address": "16318 Great Oaks Dr, Maple Room"
+    }
+  },
+  "330": {
+    "republican": {
+      "city": "Leander",
+      "site": "Arista San Gabriel Model Home",
+      "address": "2305 Whistling Duck Dr, Model Home"
+    },
+    "democratic": {
+      "city": "Georgetown",
+      "site": "Northstar Georgetown",
+      "address": "2401 Westinghouse Rd, Media Room"
+    }
+  },
+  "331": {
+    "republican": {
+      "city": "Austin",
+      "site": "Patsy Sommer Elementary",
+      "address": "16200 Avery Ranch Blvd, PTA Portable"
+    },
+    "democratic": {
+      "city": "Leander",
+      "site": "Parinama Academy",
+      "address": "14300 Ronald Reagan Blvd Unit 406, Main Hall"
+    }
+  },
+  "332": {
+    "republican": {
+      "city": "Liberty Hill",
+      "site": "Union Hall Baptist",
+      "address": "301 Seward Junction Lp, Education Bldg/Fellowship Hall"
+    },
+    "democratic": {
+      "city": "Georgetown",
+      "site": "Northstar Georgetown",
+      "address": "2401 Westinghouse Rd, Media Room"
+    }
+  },
+  "333": {
+    "republican": {
+      "city": "Round Rock",
+      "site": "The Texas Hall",
+      "address": "4412 Sam Bass Rd, Main Hall"
+    },
+    "democratic": {
+      "city": "Georgetown",
+      "site": "Northstar Georgetown",
+      "address": "2401 Westinghouse Rd, Media Room"
+    }
+  },
+  "338": {
+    "republican": {
+      "city": "Round Rock",
+      "site": "MCI Austin",
+      "address": "425 Round Rock Dr W, Main Sanctuary"
+    },
+    "democratic": {
+      "city": "Round Rock",
+      "site": "Bait-ul-Muqeet Mosque",
+      "address": "800 Deep Wood Dr, Main Hall"
+    }
+  },
+  "340": {
+    "republican": {
+      "city": "Round Rock",
+      "site": "Brushy Creek MUD",
+      "address": "16318 Great Oaks Dr, Maple Room"
+    },
+    "democratic": {
+      "city": "Round Rock",
+      "site": "Brushy Creek MUD",
+      "address": "16318 Great Oaks Dr, Maple Room"
+    }
+  },
+  "341": {
+    "republican": {
+      "city": "Georgetown",
+      "site": "Georgetown Film Alley",
+      "address": "420 Wolf Ranch Pkwy, Party Room"
+    },
+    "democratic": {
+      "city": "Georgetown",
+      "site": "Georgetown Annex",
+      "address": "100 Wilco Way, HR Training & Conference Room 105"
+    }
+  },
+  "342": {
+    "republican": {
+      "city": "Georgetown",
+      "site": "Emmaus Church of Georgetown",
+      "address": "5060 E SH 29, Atrium"
+    },
+    "democratic": {
+      "city": "Georgetown",
+      "site": "Northstar Georgetown",
+      "address": "2401 Westinghouse Rd, Media Room"
+    }
+  },
+  "343": {
+    "republican": {
+      "city": "Liberty Hill",
+      "site": "Union Hall Baptist",
+      "address": "301 Seward Junction Lp, Education Bldg/Fellowship Hall"
+    },
+    "democratic": {
+      "city": "Georgetown",
+      "site": "Northstar Georgetown",
+      "address": "2401 Westinghouse Rd, Media Room"
+    }
+  },
+  "344": {
+    "republican": {
+      "city": "Georgetown",
+      "site": "Georgetown Film Alley",
+      "address": "420 Wolf Ranch Pkwy, Party Room"
+    },
+    "democratic": {
+      "city": "Georgetown",
+      "site": "Northstar Georgetown",
+      "address": "2401 Westinghouse Rd, Media Room"
+    }
+  },
+  "345": {
+    "republican": {
+      "city": "Georgetown",
+      "site": "Cimarron Hills Sales Office",
+      "address": "103 Cimarron Hills Trail West, Main Room"
+    },
+    "democratic": {
+      "city": "Georgetown",
+      "site": "Northstar Georgetown",
+      "address": "2401 Westinghouse Rd, Media Room"
+    }
+  },
+  "346": {
+    "republican": {
+      "city": "Georgetown",
+      "site": "GISD Technology Bldg",
+      "address": "603 Lakeway Dr, Conference Room"
+    },
+    "democratic": {
+      "city": "Georgetown",
+      "site": "Northstar Georgetown",
+      "address": "2401 Westinghouse Rd, Media Room"
+    }
+  },
+  "353": {
+    "republican": {
+      "city": "Georgetown",
+      "site": "GISD Technology Bldg",
+      "address": "603 Lakeway Dr, Conference Room"
+    },
+    "democratic": {
+      "city": "Georgetown",
+      "site": "Northstar Georgetown",
+      "address": "2401 Westinghouse Rd, Media Room"
+    }
+  },
+  "359": {
+    "republican": {
+      "city": "Georgetown",
+      "site": "Emmaus Church of Georgetown",
+      "address": "5060 E SH 29, Atrium"
+    },
+    "democratic": {
+      "city": "Georgetown",
+      "site": "Northstar Georgetown",
+      "address": "2401 Westinghouse Rd, Media Room"
+    }
+  },
+  "360": {
+    "republican": {
+      "city": "Round Rock",
+      "site": "Brushy Creek MUD",
+      "address": "16318 Great Oaks Dr, Maple Room"
+    },
+    "democratic": {
+      "city": "Round Rock",
+      "site": "Brushy Creek MUD",
+      "address": "16318 Great Oaks Dr, Maple Room"
+    }
+  },
+  "367": {
+    "republican": {
+      "city": "Georgetown",
+      "site": "Georgetown Annex",
+      "address": "100 Wilco Way, HR 108"
+    },
+    "democratic": {
+      "city": "Georgetown",
+      "site": "Georgetown Annex",
+      "address": "100 Wilco Way, HR Training & Conference Room 105"
+    }
+  },
+  "368": {
+    "republican": {
+      "city": "Georgetown",
+      "site": "Georgetown Annex",
+      "address": "100 Wilco Way, HR 108"
+    },
+    "democratic": {
+      "city": "Georgetown",
+      "site": "Georgetown Annex",
+      "address": "100 Wilco Way, HR Training & Conference Room 105"
+    }
+  },
+  "369": {
+    "republican": {
+      "city": "Georgetown",
+      "site": "Emmaus Church of Georgetown",
+      "address": "5060 E SH 29, Atrium"
+    },
+    "democratic": {
+      "city": "Georgetown",
+      "site": "Northstar Georgetown",
+      "address": "2401 Westinghouse Rd, Media Room"
+    }
+  },
+  "370": {
+    "republican": {
+      "city": "Georgetown",
+      "site": "Georgetown Film Alley",
+      "address": "420 Wolf Ranch Pkwy, Party Room"
+    },
+    "democratic": {
+      "city": "Georgetown",
+      "site": "Georgetown Annex",
+      "address": "100 Wilco Way, HR Training & Conference Room 105"
+    }
+  },
+  "371": {
+    "republican": {
+      "city": "Georgetown",
+      "site": "GISD Technology Bldg",
+      "address": "603 Lakeway Dr, Conference Room"
+    },
+    "democratic": {
+      "city": "Georgetown",
+      "site": "Georgetown Fire Station #6",
+      "address": "6700 Williams Dr, Community Room"
+    }
+  },
+  "372": {
+    "republican": {
+      "city": "Round Rock",
+      "site": "The Texas Hall",
+      "address": "4412 Sam Bass Rd, Main Hall"
+    },
+    "democratic": {
+      "city": "Georgetown",
+      "site": "Northstar Georgetown",
+      "address": "2401 Westinghouse Rd, Media Room"
+    }
+  },
+  "379": {
+    "republican": {
+      "city": "Georgetown",
+      "site": "The Delaney at Georgetown Village",
+      "address": "359 Village Commons Blvd, Great Hall"
+    },
+    "democratic": {
+      "city": "Georgetown",
+      "site": "The Oaks",
+      "address": "301 Del Webb Blvd, The Oaks Room"
+    }
+  },
+  "380": {
+    "republican": {
+      "city": "Georgetown",
+      "site": "Georgetown Film Alley",
+      "address": "420 Wolf Ranch Pkwy, Party Room"
+    },
+    "democratic": {
+      "city": "Georgetown",
+      "site": "Georgetown Annex",
+      "address": "100 Wilco Way, HR Training & Conference Room 105"
+    }
+  },
+  "381": {
+    "republican": {
+      "city": "Georgetown",
+      "site": "The Oaks Community Center Sun City",
+      "address": "301 Del Webb Blvd, Main Room"
+    },
+    "democratic": {
+      "city": "Georgetown",
+      "site": "Georgetown Fire Station #6",
+      "address": "6700 Williams Dr, Community Room"
+    }
+  },
+  "390": {
+    "republican": {
+      "city": "Round Rock",
+      "site": "Fern Bluff Elementary",
+      "address": "17815 Park Valley Dr"
+    },
+    "democratic": {
+      "city": "Round Rock",
+      "site": "Brushy Creek MUD",
+      "address": "16318 Great Oaks Dr, Maple Room"
+    }
+  },
+  "391": {
+    "republican": {
+      "city": "Georgetown",
+      "site": "The Delaney at Georgetown Village",
+      "address": "359 Village Commons Blvd, Great Hall"
+    },
+    "democratic": {
+      "city": "Georgetown",
+      "site": "The Oaks",
+      "address": "301 Del Webb Blvd, The Oaks Room"
+    }
+  },
+  "392": {
+    "republican": {
+      "city": "Georgetown",
+      "site": "The Delaney at Georgetown Village",
+      "address": "359 Village Commons Blvd, Great Hall"
+    },
+    "democratic": {
+      "city": "Georgetown",
+      "site": "The Oaks",
+      "address": "301 Del Webb Blvd, The Oaks Room"
+    }
+  },
+  "393": {
+    "republican": {
+      "city": "Georgetown",
+      "site": "The Oaks Community Center Sun City",
+      "address": "301 Del Webb Blvd, Main Room"
+    },
+    "democratic": {
+      "city": "Georgetown",
+      "site": "The Oaks",
+      "address": "301 Del Webb Blvd, The Oaks Room"
+    }
+  },
+  "394": {
+    "republican": {
+      "city": "Georgetown",
+      "site": "Georgetown Randalls",
+      "address": "5721 Williams Dr, Deli Seating Area"
+    },
+    "democratic": {
+      "city": "Georgetown",
+      "site": "Georgetown Fire Station #6",
+      "address": "6700 Williams Dr, Community Room"
+    }
+  },
+  "395": {
+    "republican": {
+      "city": "Georgetown",
+      "site": "Georgetown Randalls",
+      "address": "5721 Williams Dr, Deli Seating Area"
+    },
+    "democratic": {
+      "city": "Georgetown",
+      "site": "Georgetown Fire Station #6",
+      "address": "6700 Williams Dr, Community Room"
+    }
+  },
+  "396": {
+    "republican": {
+      "city": "Georgetown",
+      "site": "The Oaks Community Center Sun City",
+      "address": "301 Del Webb Blvd, Main Room"
+    },
+    "democratic": {
+      "city": "Georgetown",
+      "site": "The Oaks",
+      "address": "301 Del Webb Blvd, The Oaks Room"
+    }
+  },
+  "397": {
+    "republican": {
+      "city": "Florence",
+      "site": "Andice Community Center",
+      "address": "6600 FM 970, Main Classroom"
+    },
+    "democratic": {
+      "city": "Georgetown",
+      "site": "The Oaks",
+      "address": "301 Del Webb Blvd, The Oaks Room"
+    }
+  },
+  "398": {
+    "republican": {
+      "city": "Round Rock",
+      "site": "Brushy Creek MUD",
+      "address": "16318 Great Oaks Dr, Maple Room"
+    },
+    "democratic": {
+      "city": "Round Rock",
+      "site": "Brushy Creek MUD",
+      "address": "16318 Great Oaks Dr, Maple Room"
+    }
+  },
+  "399": {
+    "republican": {
+      "city": "Round Rock",
+      "site": "MCI Austin",
+      "address": "425 Round Rock Dr W, Main Sanctuary"
+    },
+    "democratic": {
+      "city": "Round Rock",
+      "site": "Brushy Creek MUD",
+      "address": "16318 Great Oaks Dr, Maple Room"
+    }
+  },
+  "401": {
+    "republican": {
+      "city": "Hutto",
+      "site": "Christ the Rock Lutheran Church",
+      "address": "3250 Limmer Loop, Conference Room"
+    },
+    "democratic": {
+      "city": "Hutto",
+      "site": "Rushcreek at Star Ranch",
+      "address": "350 Star Ranch Blvd, Clubhouse"
+    }
+  },
+  "402": {
+    "republican": {
+      "city": "Hutto",
+      "site": "New Hope Christian Church",
+      "address": "9850 FM 1660, Sanctuary"
+    },
+    "democratic": {
+      "city": "Hutto",
+      "site": "Rushcreek at Star Ranch",
+      "address": "350 Star Ranch Blvd, Clubhouse"
+    }
+  },
+  "403": {
+    "republican": {
+      "city": "Hutto",
+      "site": "New Hope Christian Church",
+      "address": "9850 FM 1660, Sanctuary"
+    },
+    "democratic": {
+      "city": "Hutto",
+      "site": "Rushcreek at Star Ranch",
+      "address": "350 Star Ranch Blvd, Clubhouse"
+    }
+  },
+  "404": {
+    "republican": {
+      "city": "Hutto",
+      "site": "Christ the Rock Lutheran Church",
+      "address": "3250 Limmer Loop, Conference Room"
+    },
+    "democratic": {
+      "city": "Hutto",
+      "site": "Rushcreek at Star Ranch",
+      "address": "350 Star Ranch Blvd, Clubhouse"
+    }
+  },
+  "405": {
+    "republican": {
+      "city": "Hutto",
+      "site": "Christ the Rock Lutheran Church",
+      "address": "3250 Limmer Loop, Conference Room"
+    },
+    "democratic": {
+      "city": "Hutto",
+      "site": "Hutto ISD Admin",
+      "address": "200 College St, Board Room"
+    }
+  },
+  "408": {
+    "republican": {
+      "city": "Jarrell",
+      "site": "Trinidad Lael Bilingual Center",
+      "address": "300 Sonterra Blvd, Front Lobby"
+    },
+    "democratic": {
+      "city": "Jarrell",
+      "site": "Sonterra Clubhouse",
+      "address": "510 Sonterra Blvd, Clubhouse"
+    }
+  },
+  "409": {
+    "republican": {
+      "city": "Jarrell",
+      "site": "Jarrell Memorial Park Community Center",
+      "address": "1651 CR 305, Community Center"
+    },
+    "democratic": {
+      "city": "Weir",
+      "site": "Community Bible Church of Weir",
+      "address": "315 FM 1105, Sanctuary"
+    }
+  },
+  "410": {
+    "republican": {
+      "city": "Jarrell",
+      "site": "Jarrell Memorial Park Community Center",
+      "address": "1651 CR 305, Community Center"
+    },
+    "democratic": {
+      "city": "Jarrell",
+      "site": "Sonterra Clubhouse",
+      "address": "510 Sonterra Blvd, Clubhouse"
+    }
+  },
+  "411": {
+    "republican": {
+      "city": "Walburg",
+      "site": "Walburg Community Center",
+      "address": "4000 FM 972, Main Room"
+    },
+    "democratic": {
+      "city": "Weir",
+      "site": "Community Bible Church of Weir",
+      "address": "315 FM 1105, Sanctuary"
+    }
+  },
+  "412": {
+    "republican": {
+      "city": "Jarrell",
+      "site": "Jarrell Memorial Park Community Center",
+      "address": "1651 CR 305, Community Center"
+    },
+    "democratic": {
+      "city": "Jarrell",
+      "site": "Sonterra Clubhouse",
+      "address": "510 Sonterra Blvd, Clubhouse"
+    }
+  },
+  "413": {
+    "republican": {
+      "city": "Thrall",
+      "site": "St. John Lutheran Church",
+      "address": "409 S Main St, Education Center"
+    },
+    "democratic": {
+      "city": "Taylor",
+      "site": "Taylor City Hall",
+      "address": "400 Porter St, Auditorium"
+    }
+  },
+  "415": {
+    "republican": {
+      "city": "Walburg",
+      "site": "Walburg Community Center",
+      "address": "4000 FM 972, Main Room"
+    },
+    "democratic": {
+      "city": "Weir",
+      "site": "Community Bible Church of Weir",
+      "address": "315 FM 1105, Sanctuary"
+    }
+  },
+  "418": {
+    "republican": {
+      "city": "Hutto",
+      "site": "New Hope Christian Church",
+      "address": "9850 FM 1660, Sanctuary"
+    },
+    "democratic": {
+      "city": "Taylor",
+      "site": "Taylor City Hall",
+      "address": "400 Porter St, Auditorium"
+    }
+  },
+  "419": {
+    "republican": {
+      "city": "Hutto",
+      "site": "Hutto Bible Church",
+      "address": "150 Main Hippo Dr, Adult Classroom"
+    },
+    "democratic": {
+      "city": "Hutto",
+      "site": "Hutto ISD Admin",
+      "address": "200 College St, Board Room"
+    }
+  },
+  "420": {
+    "republican": {
+      "city": "Hutto",
+      "site": "Hutto Bible Church",
+      "address": "150 Main Hippo Dr, Adult Classroom"
+    },
+    "democratic": {
+      "city": "Hutto",
+      "site": "Hutto ISD Admin",
+      "address": "200 College St, Board Room"
+    }
+  },
+  "421": {
+    "republican": {
+      "city": "Hutto",
+      "site": "New Hope Christian Church",
+      "address": "9850 FM 1660, Sanctuary"
+    },
+    "democratic": {
+      "city": "Hutto",
+      "site": "Rushcreek at Star Ranch",
+      "address": "350 Star Ranch Blvd, Clubhouse"
+    }
+  },
+  "422": {
+    "republican": {
+      "city": "Hutto",
+      "site": "Hutto ISD Admin",
+      "address": "200 College St, Board Room"
+    },
+    "democratic": {
+      "city": "Round Rock",
+      "site": "Palm Valley Lutheran Church",
+      "address": "2500 E Palm Valley Blvd, Back Porch Room"
+    }
+  },
+  "423": {
+    "republican": {
+      "city": "Round Rock",
+      "site": "Journey of Faith United Methodist Church",
+      "address": "7301 CR 110, Fellowship Hall"
+    },
+    "democratic": {
+      "city": "Hutto",
+      "site": "Hutto ISD Admin",
+      "address": "200 College St, Board Room"
+    }
+  },
+  "424": {
+    "republican": {
+      "city": "Round Rock",
+      "site": "Journey of Faith United Methodist Church",
+      "address": "7301 CR 110, Fellowship Hall"
+    },
+    "democratic": {
+      "city": "Hutto",
+      "site": "Hutto ISD Admin",
+      "address": "200 College St, Board Room"
+    }
+  },
+  "425": {
+    "republican": {
+      "city": "Jarrell",
+      "site": "Jarrell Memorial Park Community Center",
+      "address": "1651 CR 305, Community Center"
+    },
+    "democratic": {
+      "city": "Weir",
+      "site": "Community Bible Church of Weir",
+      "address": "315 FM 1105, Sanctuary"
+    }
+  },
+  "426": {
+    "republican": {
+      "city": "Hutto",
+      "site": "New Hope Christian Church",
+      "address": "9850 FM 1660, Sanctuary"
+    },
+    "democratic": {
+      "city": "Taylor",
+      "site": "Taylor City Hall",
+      "address": "400 Porter St, Auditorium"
+    }
+  },
+  "429": {
+    "republican": {
+      "city": "Taylor",
+      "site": "Taylor ISD Event Center",
+      "address": "3101 N Main St, Event Center"
+    },
+    "democratic": {
+      "city": "Taylor",
+      "site": "Wilco Expo Center",
+      "address": "5350 Bill Pickett Trl, Ron Morrison Meeting Room"
+    }
+  },
+  "433": {
+    "republican": {
+      "city": "Round Rock",
+      "site": "The Texas Hall",
+      "address": "4412 Sam Bass Rd, Main Hall"
+    },
+    "democratic": {
+      "city": "Round Rock",
+      "site": "Round Rock Sports Center",
+      "address": "2400 Chisholm Trl, Multi-Purpose Room 4"
+    }
+  },
+  "434": {
+    "republican": {
+      "city": "Thrall",
+      "site": "St. John Lutheran Church",
+      "address": "409 S Main St, Education Center"
+    },
+    "democratic": {
+      "city": "Taylor",
+      "site": "Wilco Expo Center",
+      "address": "5350 Bill Pickett Trl, Ron Morrison Meeting Room"
+    }
+  },
+  "436": {
+    "republican": {
+      "city": "Hutto",
+      "site": "Christ the Rock Lutheran Church",
+      "address": "3250 Limmer Loop, Conference Room"
+    },
+    "democratic": {
+      "city": "Taylor",
+      "site": "Wilco Expo Center",
+      "address": "5350 Bill Pickett Trl, Ron Morrison Meeting Room"
+    }
+  },
+  "437": {
+    "republican": {
+      "city": "Round Rock",
+      "site": "Round Rock Sports Center",
+      "address": "2400 Chisholm Trl, Tournament Room"
+    },
+    "democratic": {
+      "city": "Round Rock",
+      "site": "Round Rock Sports Center",
+      "address": "2400 Chisholm Trl, Multi-Purpose Room 4"
+    }
+  },
+  "438": {
+    "republican": {
+      "city": "Georgetown",
+      "site": "Emmaus Church of Georgetown",
+      "address": "5060 E SH 29, Atrium"
+    },
+    "democratic": {
+      "city": "Round Rock",
+      "site": "Round Rock Sports Center",
+      "address": "2400 Chisholm Trl, Multi-Purpose Room 4"
+    }
+  },
+  "455": {
+    "republican": {
+      "city": "Taylor",
+      "site": "Taylor Annex",
+      "address": "412 Vance St, Ste. V108"
+    },
+    "democratic": {
+      "city": "Taylor",
+      "site": "Taylor City Hall",
+      "address": "400 Porter St, Auditorium"
+    }
+  },
+  "456": {
+    "republican": {
+      "city": "Taylor",
+      "site": "Taylor ISD Event Center",
+      "address": "3101 N Main St, Event Center"
+    },
+    "democratic": {
+      "city": "Taylor",
+      "site": "Taylor City Hall",
+      "address": "400 Porter St, Auditorium"
+    }
+  },
+  "468": {
+    "republican": {
+      "city": "Round Rock",
+      "site": "Round Rock Sports Center",
+      "address": "2400 Chisholm Trl, Tournament Room"
+    },
+    "democratic": {
+      "city": "Round Rock",
+      "site": "Round Rock Sports Center",
+      "address": "2400 Chisholm Trl, Multi-Purpose Room 4"
+    }
+  },
+  "469": {
+    "republican": {
+      "city": "Georgetown",
+      "site": "Georgetown City Hall",
+      "address": "808 Martin Luther King Jr St, Community Room"
+    },
+    "democratic": {
+      "city": "Georgetown",
+      "site": "Heritage Baptist Church",
+      "address": "1601 FM 971, Fellowship Hall"
+    }
+  },
+  "470": {
+    "republican": {
+      "city": "Georgetown",
+      "site": "Georgetown City Hall",
+      "address": "808 Martin Luther King Jr St, Community Room"
+    },
+    "democratic": {
+      "city": "Georgetown",
+      "site": "Heritage Baptist Church",
+      "address": "1601 FM 971, Fellowship Hall"
+    }
+  },
+  "471": {
+    "republican": {
+      "city": "Georgetown",
+      "site": "Georgetown City Hall",
+      "address": "808 Martin Luther King Jr St, Community Room"
+    },
+    "democratic": {
+      "city": "Georgetown",
+      "site": "Heritage Baptist Church",
+      "address": "1601 FM 971, Fellowship Hall"
+    }
+  },
+  "472": {
+    "republican": {
+      "city": "Georgetown",
+      "site": "Georgetown City Hall",
+      "address": "808 Martin Luther King Jr St, Community Room"
+    },
+    "democratic": {
+      "city": "Georgetown",
+      "site": "Heritage Baptist Church",
+      "address": "1601 FM 971, Fellowship Hall"
+    }
+  },
+  "473": {
+    "republican": {
+      "city": "Georgetown",
+      "site": "Emmaus Church of Georgetown",
+      "address": "5060 E SH 29, Atrium"
+    },
+    "democratic": {
+      "city": "Weir",
+      "site": "Community Bible Church of Weir",
+      "address": "315 FM 1105, Sanctuary"
+    }
+  },
+  "482": {
+    "republican": {
+      "city": "Round Rock",
+      "site": "Round Rock Sports Center",
+      "address": "2400 Chisholm Trl, Tournament Room"
+    },
+    "democratic": {
+      "city": "Round Rock",
+      "site": "Round Rock Sports Center",
+      "address": "2400 Chisholm Trl, Multi-Purpose Room 4"
+    }
+  },
+  "484": {
+    "republican": {
+      "city": "Hutto",
+      "site": "Hutto Bible Church",
+      "address": "150 Main Hippo Dr, Adult Classroom"
+    },
+    "democratic": {
+      "city": "Hutto",
+      "site": "Hutto ISD Admin",
+      "address": "200 College St, Board Room"
+    }
+  },
+  "485": {
+    "republican": {
+      "city": "Round Rock",
+      "site": "Old Settlers Association",
+      "address": "3300 E Palm Valley Blvd"
+    },
+    "democratic": {
+      "city": "Hutto",
+      "site": "Hutto ISD Admin",
+      "address": "200 College St, Board Room"
+    }
+  },
+  "486": {
+    "republican": {
+      "city": "Round Rock",
+      "site": "Old Settlers Association",
+      "address": "3300 E Palm Valley Blvd"
+    },
+    "democratic": {
+      "city": "Hutto",
+      "site": "Hutto ISD Admin",
+      "address": "200 College St, Board Room"
+    }
+  },
+  "487": {
+    "republican": {
+      "city": "Round Rock",
+      "site": "Journey of Faith United Methodist Church",
+      "address": "7301 CR 110, Fellowship Hall"
+    },
+    "democratic": {
+      "city": "Hutto",
+      "site": "Hutto ISD Admin",
+      "address": "200 College St, Board Room"
+    }
+  },
+  "488": {
+    "republican": {
+      "city": "Round Rock",
+      "site": "Round Rock Randalls",
+      "address": "2051 Gattis School Rd, Deli Seating Area"
+    },
+    "democratic": {
+      "city": "Hutto",
+      "site": "Hutto ISD Admin",
+      "address": "200 College St, Board Room"
+    }
+  },
+  "489": {
+    "republican": {
+      "city": "Hutto",
+      "site": "Rushcreek at Star Ranch",
+      "address": "350 Star Ranch Blvd, Clubhouse"
+    },
+    "democratic": {
+      "city": "Hutto",
+      "site": "Rushcreek at Star Ranch",
+      "address": "350 Star Ranch Blvd, Clubhouse"
+    }
+  },
+  "490": {
+    "republican": {
+      "city": "Hutto",
+      "site": "Rushcreek at Star Ranch",
+      "address": "350 Star Ranch Blvd, Clubhouse"
+    },
+    "democratic": {
+      "city": "Hutto",
+      "site": "Rushcreek at Star Ranch",
+      "address": "350 Star Ranch Blvd, Clubhouse"
+    }
+  },
+  "491": {
+    "republican": {
+      "city": "Round Rock",
+      "site": "Old Settlers Association",
+      "address": "3300 E Palm Valley Blvd"
+    },
+    "democratic": {
+      "city": "Hutto",
+      "site": "Hutto ISD Admin",
+      "address": "200 College St, Board Room"
+    }
+  }
+}

@@ -1,5 +1,6 @@
 import type { PageLoad } from './$types';
 import { error } from '@sveltejs/kit';
+import pollingPlaces from '$lib/data/precinct_polling_places.json';
 
 export const load: PageLoad = async ({ params, url, fetch }) => {
   const voterID = params.id;
@@ -60,6 +61,17 @@ export const load: PageLoad = async ({ params, url, fetch }) => {
       ? (ballotStyle?.interactiveSampleBallots?.rep ?? '')
       : '';
 
+  // define voterInfo once so you can safely reuse it
+  const voterInfo = voterData.voterInfo;
+
+  // precinct comes from the voter payload already fetched
+  const precinctRaw = voterInfo?.PRECINCT ?? '';
+  const precinctKey = String(precinctRaw).match(/\d+/)?.[0] ?? ''; // supports "116" or "P 116"
+
+  const precinctPollingPlace =
+    precinctKey && (pollingPlaces as Record<string, any>)[precinctKey]
+      ? (pollingPlaces as Record<string, any>)[precinctKey]
+      : null;
 
   return {
     voterInfo: voterData.voterInfo,
@@ -71,6 +83,8 @@ export const load: PageLoad = async ({ params, url, fetch }) => {
     repInteractiveHref,
     showSampleBallot,
     isPrimary,
-    electionID
+    electionID,
+    precinctKey,
+    precinctPollingPlace
   };
 };
