@@ -51,6 +51,7 @@
     typeof ballotStyle === 'object'
       ? (ballotStyle?.number ??
          ballotStyle?.BallotStyleNumber ??
+         ballotStyle?.style ??
          ballotStyle?.BSD ??        // fallback
          ballotStyle?.BSR ??        // fallback
          '')

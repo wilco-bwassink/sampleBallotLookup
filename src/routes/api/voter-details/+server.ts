@@ -12,74 +12,104 @@ export const POST: RequestHandler = async ({ request }) => {
     }
 
     const recordsets = await getVoterDetails(voterID, electionID);
+    const recordsetList = Array.isArray(recordsets) ? recordsets : Object.values(recordsets ?? {});
 
-    const voterInfo        = recordsets?.[0]?.[0] ?? null;
-    const federalOfficials = recordsets?.[1] ?? [];
-    const stateOfficials   = recordsets?.[2] ?? [];
-    const countyOfficials  = recordsets?.[3] ?? [];
+    const voterInfo        = recordsetList[0]?.[0] ?? null;
+    const federalOfficials = recordsetList[1] ?? [];
+    const stateOfficials   = recordsetList[2] ?? [];
+    const countyOfficials  = recordsetList[3] ?? [];
 
-    // --- Ballot recordsets (robust detection) ---
+    // --- Ballot recordsets (support both general and primary elections) ---
     const firstRow = (rs: any) => (Array.isArray(rs) && rs.length ? rs[0] : null);
 
-    const findRowByKey = (key: string) => {
-      for (const rs of recordsets ?? []) {
-        const r = firstRow(rs);
-        if (r && typeof r === 'object' && key in r) return r;
+    const findRowByKeys = (keys: string[]) => {
+      for (const rs of recordsetList) {
+        const row = firstRow(rs);
+        if (!row || typeof row !== 'object') continue;
+        if (keys.some((key) => key in row)) return row;
       }
       return null;
     };
 
-    // Links row = has DemBallot/RepBallot
-    const ballotLinksRow =
-      findRowByKey('DemBallot') ??
-      findRowByKey('RepBallot') ??
-      findRowByKey('DEMBALLOT') ??
-      findRowByKey('REPBALLOT');
+    const ballotLinksRow = findRowByKeys(['DemBallot', 'RepBallot', 'DEMBALLOT', 'REPBALLOT']);
+    const primaryStyleRow = findRowByKeys(['BallotStyle', 'BALLOTSTYLE', 'ballotStyle']);
+    const generalBallotRow = findRowByKeys([
+      'InteractiveBallotUrl',
+      'interactiveBallotUrl',
+      'interactiveUrl',
+      'QA_LINK',
+      'Prod_Link',
+      'PROD_LINK',
+      'BallotStyleNumber',
+      'ballotStyleNumber',
+      'BallotStyle2'
+    ]);
 
-    // Style row = has BallotStyle (pipe-separated)
-    const ballotStyleRow =
-      findRowByKey('BallotStyle') ??
-      findRowByKey('BALLOTSTYLE') ??
-      findRowByKey('ballotStyle');
-
-    // Pipe-separated style like "1428|1430"
-    const combinedStyle = (ballotStyleRow?.BallotStyle ??
-      ballotStyleRow?.BALLOTSTYLE ??
-      ballotStyleRow?.ballotStyle ??
+    const rawCombinedStyle = (primaryStyleRow?.BallotStyle ??
+      primaryStyleRow?.BALLOTSTYLE ??
+      primaryStyleRow?.ballotStyle ??
       '') as string;
 
-    const [bsdRaw = '', bsrRaw = ''] = (combinedStyle || '').split('|', 2);
+    const combinedStyle = rawCombinedStyle.trim();
+    const [bsdRaw = '', bsrRaw = ''] = combinedStyle.split('|', 2);
     const BSD = bsdRaw.trim();
     const BSR = bsrRaw.trim();
 
-    // Interactive sample ballot URLs
-    const demInteractiveUrl = (ballotLinksRow?.DemBallot ??
-      ballotLinksRow?.DEMBALLOT ??
-      ballotLinksRow?.DEM_BALLOT ??
-      '') as string;
+    const styleNumber = String(
+      generalBallotRow?.BallotStyleNumber ??
+        generalBallotRow?.ballotStyleNumber ??
+        generalBallotRow?.BallotStyle2 ??
+        (combinedStyle.includes('|') ? '' : combinedStyle) ??
+        ''
+    ).trim();
 
-    const repInteractiveUrl = (ballotLinksRow?.RepBallot ??
-      ballotLinksRow?.REPBALLOT ??
-      ballotLinksRow?.REP_BALLOT ??
-      '') as string;
+    const demInteractiveUrl = String(
+      ballotLinksRow?.DemBallot ??
+        ballotLinksRow?.DEMBALLOT ??
+        ballotLinksRow?.DEM_BALLOT ??
+        ''
+    ).trim();
 
-    const precinct = (ballotLinksRow?.Precinct ??
-      ballotLinksRow?.PRECINCT ??
-      voterInfo?.PRECINCT ??
-      voterInfo?.Precinct ??
-      '') as string;
+    const repInteractiveUrl = String(
+      ballotLinksRow?.RepBallot ??
+        ballotLinksRow?.REPBALLOT ??
+        ballotLinksRow?.REP_BALLOT ??
+        ''
+    ).trim();
+
+    const interactiveUrl = String(
+      generalBallotRow?.InteractiveBallotUrl ??
+        generalBallotRow?.interactiveBallotUrl ??
+        generalBallotRow?.interactiveUrl ??
+        generalBallotRow?.QA_LINK ??
+        generalBallotRow?.Prod_Link ??
+        generalBallotRow?.PROD_LINK ??
+        demInteractiveUrl ??
+        repInteractiveUrl ??
+        ''
+    ).trim();
+
+    const precinct = String(
+      ballotLinksRow?.Precinct ??
+        ballotLinksRow?.PRECINCT ??
+        generalBallotRow?.Precinct ??
+        generalBallotRow?.PRECINCT ??
+        voterInfo?.PRECINCT ??
+        voterInfo?.Precinct ??
+        ''
+    ).trim();
 
     const ballotStyle = {
-      style: combinedStyle ?? '',
+      number: styleNumber,
+      style: combinedStyle,
       BSD,
       BSR,
-      precinct: precinct ?? '',
+      precinct,
       interactiveSampleBallots: {
-        dem: demInteractiveUrl ?? '',
-        rep: repInteractiveUrl ?? ''
+        dem: demInteractiveUrl,
+        rep: repInteractiveUrl
       },
-      // legacy single-link fallback
-      interactiveUrl: (demInteractiveUrl || repInteractiveUrl || '') as string
+      interactiveUrl
     };
 
     // --- debug info (fixed) ---
@@ -87,12 +117,13 @@ export const POST: RequestHandler = async ({ request }) => {
       ? {
           electionIDEcho: electionID,
           voterIDEcho: voterID,
-          recordsetMeta: (recordsets ?? []).map((rs: any, i: number) => ({
+          recordsetMeta: recordsetList.map((rs: any, i: number) => ({
             i,
             rows: Array.isArray(rs) ? rs.length : 0,
             keys: firstRow(rs) ? Object.keys(firstRow(rs)) : []
           })),
-          ballotStyleRow,
+          primaryStyleRow,
+          generalBallotRow,
           ballotLinksRow
         }
       : undefined;
