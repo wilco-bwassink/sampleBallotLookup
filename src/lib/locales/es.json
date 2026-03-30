@@ -33,6 +33,7 @@
   "nav.intDemSampleBallot": "Boleta de Muestra Demócrata Interactiva",
   "nav.pdfRepSampleBallot": "Boleta de Muestra Republicana en PDF",
   "nav.intRepSampleBallot": "Boleta de Muestra Republicana Interactiva",
+  "nav.notAvailable": "No hay elecciones en su distrito.",
   "nav.viewPDF": "Ver PDF (estilo  {style})",
   "nav.pollingPlaces":"Lugares de votación el día de las elecciones",
   "nav.pollingPlacesDem": "Partido Demócrata",

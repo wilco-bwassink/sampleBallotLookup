@@ -120,7 +120,7 @@
                 {$t('nav.pdfBallot')}
               </a>
             {:else}
-              <span>Not available</span>
+              <span>{$t('nav.notAvailable')}</span>
             {/if}
           </div>
 
@@ -129,7 +129,7 @@
             {#if interactiveHref}
               <a href={interactiveHref} target="_blank" rel="noopener">{$t('nav.webBallot')}</a>
             {:else}
-              <span>Not available</span>
+              <span>{$t('nav.notAvailable')}</span>
             {/if}
           </div>
         </section>
@@ -146,7 +146,7 @@
                 {$t('nav.viewPDF')} {bsdNumber})
               </a>
             {:else}
-              <span>Not available</span>
+              <span>{$t('nav.notAvailable')}</span>
             {/if}
           </div>
 
@@ -155,7 +155,7 @@
             {#if demInteractiveHref}
               <a href={demInteractiveHref} target="_blank" rel="noopener">{$t('nav.webBallot')}</a>
             {:else}
-              <span>Not available</span>
+              <span>{$t('nav.notAvailable')}</span>
             {/if}
           </div>
 

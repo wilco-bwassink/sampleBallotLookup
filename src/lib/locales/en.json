@@ -33,6 +33,7 @@
   "nav.intDemSampleBallot": "Interactive Democratic Sample Ballot",
   "nav.pdfRepSampleBallot": "PDF Republican Sample Ballot",
   "nav.intRepSampleBallot": "Interactive Republican Sample Ballot",
+  "nav.notAvailable": "No elections in your district",
   "nav.viewPDF": "View PDF (style {style})",
   "nav.pollingPlaces":"Election Day Polling Places",
   "nav.pollingPlacesDem": "Democratic",
