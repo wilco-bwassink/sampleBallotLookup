@@ -33,3 +33,12 @@ export async function getVoterDetails(id: string, electionID: string) {
 	return result.recordsets;
 }
 
+export async function getVoterDetailsPrimary(id: string, electionID: string) {
+	const pool = await sql.connect(config);
+	const request = pool.request();
+	const result = await request
+		.input('ID', sql.NVarChar, id)
+		.input('ElectionID', sql.NVarChar, electionID)
+		.execute('Elections.GetVoterDetailsWithLinks_SplitBallot');
+	return result.recordsets;
+}

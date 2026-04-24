@@ -1,12 +1,13 @@
-<script>
+<script lang="ts">
   import { locale } from 'svelte-i18n';
+  import type { ElectionMap } from '$lib/types/election';
 
-  export let selectedElection;
-  export let electionData;
+  export let selectedElection: string;
+  export let electionData: ElectionMap;
 
   $: isES = $locale?.toLowerCase().startsWith('es');
 
-  function pickAnnouncement(rec) {
+  function pickAnnouncement(rec: ElectionMap[string] | undefined) {
     if (!rec) return null;
     const es = typeof rec.AnnouncementSpanish === 'string' ? rec.AnnouncementSpanish.trim() : '';
     const en = typeof rec.Announcement === 'string' ? rec.Announcement.trim() : '';

@@ -2,7 +2,7 @@ import { json } from '@sveltejs/kit';
 
 export async function GET() {
 	try {
-		const res = await fetch('http://dev.wilco.org/sampleBallotAdmin/data/electionStatus.json');
+		const res = await fetch('http://dev.wilco.org/sampleBallotAdminEIDev/data/electionStatus.json'); //remove EIDev/data from link after testing
 
 		if (!res.ok) {
 			console.error(`Fetch failed with status ${res.status}`);

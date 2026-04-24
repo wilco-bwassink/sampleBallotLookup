@@ -13,6 +13,7 @@
 		electionID: string;
 		demInteractiveHref: string;
 		repInteractiveHref: string;
+		debug: any;
 		precinctKey: string;
 		precinctPollingPlace: any;
 	};
@@ -28,6 +29,7 @@
 		electionID,
 		demInteractiveHref,
 		repInteractiveHref,
+		debug,
 		precinctKey,
 		precinctPollingPlace
 	} = data;
@@ -94,6 +96,16 @@
 				2
 			)}</pre>
 	</details>
+	{#if debug}
+		<details class="debug">
+			<summary>Debug: API ballot metadata</summary>
+			<pre style="white-space:pre-wrap;max-width:100%;overflow:auto">{JSON.stringify(
+					debug,
+					null,
+					2
+				)}</pre>
+		</details>
+	{/if}
 {/if}
 <div class="voterContainer">
 	<div class="voterInfo">
@@ -189,7 +201,8 @@
 				</section>
 			{/if}
 		{/if}
-		{#if showPrimaryElection}
+		<!-- This section shows polling locations when we have assigned polling locations -->
+		<!-- {#if showPrimaryElection}
 			<section id="edPollingLocations">
 				<h2>{$t('nav.pollingPlaces')}</h2>
 				<p>
@@ -205,7 +218,7 @@
 					{precinctPollingPlace.republican.city}
 				</p>
 			</section>
-		{/if}
+		{/if} -->
 	</div>
 
 	{#if federalOfficials && federalOfficials.length > 0}

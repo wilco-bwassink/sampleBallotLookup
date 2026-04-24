@@ -1,17 +1,20 @@
 // routes/voterlookup/api/voter-details/+server.ts
 import type { RequestHandler } from './$types';
 import { json } from '@sveltejs/kit';
-import { getVoterDetails } from '$lib/server/db';
+import { getVoterDetails, getVoterDetailsPrimary } from '$lib/server/db';
 
 export const POST: RequestHandler = async ({ request }) => {
   try {
-    const { voterID, electionID, debug } = await request.json();
+    const { voterID, electionID, debug, isPrimary = false } = await request.json();
 
     if (!voterID || !electionID) {
       return json({ error: 'Missing voterID or electionID' }, { status: 400 });
     }
 
-    const recordsets = await getVoterDetails(voterID, electionID);
+    const primaryElection = Boolean(isPrimary);
+    const recordsets = primaryElection
+      ? await getVoterDetailsPrimary(voterID, electionID)
+      : await getVoterDetails(voterID, electionID);
     const recordsetList = Array.isArray(recordsets) ? recordsets : Object.values(recordsets ?? {});
 
     const voterInfo        = recordsetList[0]?.[0] ?? null;
@@ -21,19 +24,54 @@ export const POST: RequestHandler = async ({ request }) => {
 
     // --- Ballot recordsets (support both general and primary elections) ---
     const firstRow = (rs: any) => (Array.isArray(rs) && rs.length ? rs[0] : null);
+    const allRows = recordsetList.flatMap((rs: any) =>
+      Array.isArray(rs) ? rs.filter((row) => row && typeof row === 'object') : []
+    );
 
-    const findRowByKeys = (keys: string[]) => {
-      for (const rs of recordsetList) {
-        const row = firstRow(rs);
-        if (!row || typeof row !== 'object') continue;
-        if (keys.some((key) => key in row)) return row;
+    const findRowsByKeys = (keys: string[]) =>
+      allRows.filter((row) => keys.some((key) => key in row));
+
+    const getFirstValue = (rows: any[], keys: string[]) => {
+      for (const row of rows) {
+        for (const key of keys) {
+          if (!(key in row)) continue;
+          const value = row[key];
+          if (value === null || value === undefined) continue;
+          const trimmed = String(value).trim();
+          if (trimmed) return trimmed;
+        }
       }
-      return null;
+      return '';
     };
 
-    const ballotLinksRow = findRowByKeys(['DemBallot', 'RepBallot', 'DEMBALLOT', 'REPBALLOT']);
-    const primaryStyleRow = findRowByKeys(['BallotStyle', 'BALLOTSTYLE', 'ballotStyle']);
-    const generalBallotRow = findRowByKeys([
+    const ballotLinkRows = findRowsByKeys([
+      'DemBallot',
+      'RepBallot',
+      'DEMBALLOT',
+      'REPBALLOT',
+      'DEM_BALLOT',
+      'REP_BALLOT',
+      'DemInteractiveBallotUrl',
+      'RepInteractiveBallotUrl',
+      'DemInteractiveUrl',
+      'RepInteractiveUrl',
+      'DEM_LINK',
+      'REP_LINK',
+      'Split_ID'
+    ]);
+    const primaryStyleRows = findRowsByKeys([
+      'BallotStyle',
+      'BALLOTSTYLE',
+      'ballotStyle',
+      'BSD',
+      'BSR',
+      'Split_ID',
+      'DemBallotStyle',
+      'RepBallotStyle',
+      'DEMSTYLE',
+      'REPSTYLE'
+    ]);
+    const generalBallotRows = findRowsByKeys([
       'InteractiveBallotUrl',
       'interactiveBallotUrl',
       'interactiveUrl',
@@ -42,61 +80,86 @@ export const POST: RequestHandler = async ({ request }) => {
       'PROD_LINK',
       'BallotStyleNumber',
       'ballotStyleNumber',
-      'BallotStyle2'
+      'BallotStyle2',
+      'Split_ID'
     ]);
 
-    const rawCombinedStyle = (primaryStyleRow?.BallotStyle ??
-      primaryStyleRow?.BALLOTSTYLE ??
-      primaryStyleRow?.ballotStyle ??
-      '') as string;
+    const demSplitRow =
+      allRows.find(
+        (row) => typeof row?.Split_ID === 'string' && row.Split_ID.trim().toUpperCase().startsWith('BSD')
+      ) ?? null;
+    const repSplitRow =
+      allRows.find(
+        (row) => typeof row?.Split_ID === 'string' && row.Split_ID.trim().toUpperCase().startsWith('BSR')
+      ) ?? null;
+
+    const rawCombinedStyle = getFirstValue(primaryStyleRows, [
+      'BallotStyle',
+      'BALLOTSTYLE',
+      'ballotStyle'
+    ]);
 
     const combinedStyle = rawCombinedStyle.trim();
     const [bsdRaw = '', bsrRaw = ''] = combinedStyle.split('|', 2);
-    const BSD = bsdRaw.trim();
-    const BSR = bsrRaw.trim();
-
-    const styleNumber = String(
-      generalBallotRow?.BallotStyleNumber ??
-        generalBallotRow?.ballotStyleNumber ??
-        generalBallotRow?.BallotStyle2 ??
-        (combinedStyle.includes('|') ? '' : combinedStyle) ??
-        ''
+    const BSD = (
+      bsdRaw.trim() ||
+      String(demSplitRow?.Split_ID ?? '').replace(/^BSD/i, '') ||
+      getFirstValue(primaryStyleRows, ['BSD', 'DemBallotStyle', 'DEMSTYLE'])
+    ).trim();
+    const BSR = (
+      bsrRaw.trim() ||
+      String(repSplitRow?.Split_ID ?? '').replace(/^BSR/i, '') ||
+      getFirstValue(primaryStyleRows, ['BSR', 'RepBallotStyle', 'REPSTYLE'])
     ).trim();
 
-    const demInteractiveUrl = String(
-      ballotLinksRow?.DemBallot ??
-        ballotLinksRow?.DEMBALLOT ??
-        ballotLinksRow?.DEM_BALLOT ??
-        ''
+    const styleNumber = (
+      getFirstValue(generalBallotRows, [
+        'BallotStyleNumber',
+        'ballotStyleNumber',
+        'BallotStyle2'
+      ]) ||
+      (combinedStyle.includes('|') ? '' : combinedStyle) ||
+      BSD ||
+      BSR
     ).trim();
 
-    const repInteractiveUrl = String(
-      ballotLinksRow?.RepBallot ??
-        ballotLinksRow?.REPBALLOT ??
-        ballotLinksRow?.REP_BALLOT ??
-        ''
+    const demInteractiveUrl = getFirstValue(ballotLinkRows, [
+      'DemBallot',
+      'DEMBALLOT',
+      'DEM_BALLOT',
+      'DemInteractiveBallotUrl',
+      'DemInteractiveUrl',
+      'DEM_LINK'
+    ]) || String(demSplitRow?.QA_LINK ?? '').trim();
+
+    const repInteractiveUrl = getFirstValue(ballotLinkRows, [
+      'RepBallot',
+      'REPBALLOT',
+      'REP_BALLOT',
+      'RepInteractiveBallotUrl',
+      'RepInteractiveUrl',
+      'REP_LINK'
+    ]) || String(repSplitRow?.QA_LINK ?? '').trim();
+
+    const interactiveUrl = (
+      getFirstValue(generalBallotRows, [
+        'InteractiveBallotUrl',
+        'interactiveBallotUrl',
+        'interactiveUrl',
+        'QA_LINK',
+        'Prod_Link',
+        'PROD_LINK'
+      ]) ||
+      demInteractiveUrl ||
+      repInteractiveUrl
     ).trim();
 
-    const interactiveUrl = String(
-      generalBallotRow?.InteractiveBallotUrl ??
-        generalBallotRow?.interactiveBallotUrl ??
-        generalBallotRow?.interactiveUrl ??
-        generalBallotRow?.QA_LINK ??
-        generalBallotRow?.Prod_Link ??
-        generalBallotRow?.PROD_LINK ??
-        demInteractiveUrl ??
-        repInteractiveUrl ??
-        ''
-    ).trim();
-
-    const precinct = String(
-      ballotLinksRow?.Precinct ??
-        ballotLinksRow?.PRECINCT ??
-        generalBallotRow?.Precinct ??
-        generalBallotRow?.PRECINCT ??
-        voterInfo?.PRECINCT ??
-        voterInfo?.Precinct ??
-        ''
+    const precinct = (
+      getFirstValue([...ballotLinkRows, ...generalBallotRows, ...primaryStyleRows], [
+        'Precinct',
+        'PRECINCT'
+      ]) ||
+      String(voterInfo?.PRECINCT ?? voterInfo?.Precinct ?? '')
     ).trim();
 
     const ballotStyle = {
@@ -117,14 +180,15 @@ export const POST: RequestHandler = async ({ request }) => {
       ? {
           electionIDEcho: electionID,
           voterIDEcho: voterID,
+          isPrimary: primaryElection,
           recordsetMeta: recordsetList.map((rs: any, i: number) => ({
             i,
             rows: Array.isArray(rs) ? rs.length : 0,
             keys: firstRow(rs) ? Object.keys(firstRow(rs)) : []
           })),
-          primaryStyleRow,
-          generalBallotRow,
-          ballotLinksRow
+          primaryStyleRows,
+          generalBallotRows,
+          ballotLinkRows
         }
       : undefined;
 
@@ -138,6 +202,13 @@ export const POST: RequestHandler = async ({ request }) => {
     });
   } catch (err) {
     console.error('Error in /api/voter-details:', err);
-    return json({ error: 'Failed to retrieve voter details' }, { status: 500 });
+    const message = err instanceof Error ? err.message : 'Failed to retrieve voter details';
+    return json(
+      {
+        error: 'Failed to retrieve voter details',
+        details: message
+      },
+      { status: 500 }
+    );
   }
 };

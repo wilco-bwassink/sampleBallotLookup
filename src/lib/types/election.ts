@@ -1,6 +1,23 @@
 export interface ElectionEntry {
-	IsActive: boolean;
-	Announcement: string | null;
+  ElectionId: string;
+  ElectionName: string;
+  ElectionNameSpanish: string | null;
+  IsActive: boolean;
+  IsPrimary: boolean;
+  Announcement: string | null;
+  AnnouncementSpanish: string | null;
 }
 
-export type ElectionRecord = Record<string, ElectionEntry>;
+export type ElectionMap = Record<string, ElectionEntry>;
+export type ElectionPayload =
+  | ElectionEntry[]
+  | Record<
+      string,
+      {
+        IsActive?: boolean;
+        IsPrimary?: boolean;
+        ElectionNameSpanish?: string | null;
+        Announcement?: string | null;
+        AnnouncementSpanish?: string | null;
+      }
+    >;
