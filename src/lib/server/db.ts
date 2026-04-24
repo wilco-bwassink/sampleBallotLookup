@@ -1,19 +1,30 @@
 import sql from 'mssql';
-import { DB_HOST, DB_NAME, DB_USER, DB_PASSWORD } from '$env/static/private';
+import { env } from '$env/dynamic/private';
 
-const config: sql.config = {
-	server: DB_HOST,
-	database: DB_NAME,
-	user: DB_USER,
-	password: DB_PASSWORD,
-	options: {
-		trustServerCertificate: true,
-		enableArithAbort: true
+function getRequiredEnv(name: 'DB_HOST' | 'DB_NAME' | 'DB_USER' | 'DB_PASSWORD') {
+	const value = env[name]?.trim();
+	if (!value) {
+		throw new Error(`Missing required database environment variable: ${name}`);
 	}
-};
+
+	return value;
+}
+
+function getConfig(): sql.config {
+	return {
+		server: getRequiredEnv('DB_HOST'),
+		database: getRequiredEnv('DB_NAME'),
+		user: getRequiredEnv('DB_USER'),
+		password: getRequiredEnv('DB_PASSWORD'),
+		options: {
+			trustServerCertificate: true,
+			enableArithAbort: true
+		}
+	};
+}
 
 export async function getVoterByNameAndDob(first: string, last: string, dob: string) {
-	const pool = await sql.connect(config);
+	const pool = await sql.connect(getConfig());
 	const request = pool.request();
 	const result = await request
 		.input('First', sql.NVarChar, first)
@@ -24,7 +35,7 @@ export async function getVoterByNameAndDob(first: string, last: string, dob: str
 }
 
 export async function getVoterDetails(id: string, electionID: string) {
-	const pool = await sql.connect(config);
+	const pool = await sql.connect(getConfig());
 	const request = pool.request();
 	const result = await request
 		.input('ID', sql.NVarChar, id)
@@ -34,7 +45,7 @@ export async function getVoterDetails(id: string, electionID: string) {
 }
 
 export async function getVoterDetailsPrimary(id: string, electionID: string) {
-	const pool = await sql.connect(config);
+	const pool = await sql.connect(getConfig());
 	const request = pool.request();
 	const result = await request
 		.input('ID', sql.NVarChar, id)

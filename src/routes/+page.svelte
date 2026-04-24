@@ -1,4 +1,5 @@
 <script lang="ts">
+	import { base } from '$app/paths';
 	import { onMount } from 'svelte';
 	import AnnouncementSection from '$lib/components/AnnouncementSection.svelte';
 	import LanguageToggle from '$lib/components/LanguageToggle.svelte';
@@ -68,6 +69,7 @@
 	let electionData: ElectionMap = {};
 	let elections: string[] = [];
 	let selectedElection = '0';
+	const apiBase = `${base}/api`;
 
 	// voter search results
 	let searchResults: Array<{ IDNUMBER: string; NAME: string; ADDRESS: string }> = [];
@@ -76,10 +78,8 @@
 	onMount(async () => {
 		try {
 			const [res, settingsRes] = await Promise.all([
-				// fetch('https://apps.wilcotx.gov/elections/voterlookup/api/proxy-election-data'),
-				fetch('/api/proxy-election-data'), //Dev
-				// fetch('https://apps.wilcotx.gov/elections/voterlookup/api/proxy-admin-settings')
-				fetch('/api/proxy-admin-settings') //Dev
+				fetch(`${apiBase}/proxy-election-data`),
+				fetch(`${apiBase}/proxy-admin-settings`)
 			]);
 			const [data, settingsJson] = await Promise.all([res.json(), settingsRes.json()]);
 			settings = settingsJson || settings;
@@ -145,13 +145,24 @@
 		}
 
 		try {
-			const res = await fetch('/api/voter-search', {
+			const res = await fetch(`${apiBase}/voter-search`, {
 				method: 'POST',
 				headers: { 'Content-Type': 'application/json' },
 				body: JSON.stringify(payload)
 			});
 
-			const data = await res.json();
+			const contentType = res.headers.get('content-type') ?? '';
+			const data = contentType.includes('application/json') ? await res.json() : null;
+
+			if (!res.ok) {
+				const message =
+					data?.error ||
+					(res.status === 404
+						? 'Search service not found on this server.'
+						: 'Search request failed. Please try again.');
+				alert(message);
+				return;
+			}
 
 			if (data.error) {
 				alert(data.error);
@@ -284,7 +295,7 @@
 					<li class="voterDetails">
 						<p class="voterInfo">
 							<a
-								href={`https://apps.wilcotx.gov/elections/voterlookup/${voter.IDNUMBER}?electionID=${selectedElection}`}
+								href={`${base}/${voter.IDNUMBER}?electionID=${selectedElection}`}
 								target="_blank"
 								rel="noopener noreferrer">{voter.NAME}</a
 							>

@@ -1,4 +1,5 @@
 import type { PageLoad } from './$types';
+import { base } from '$app/paths';
 import { error } from '@sveltejs/kit';
 import pollingPlaces from '$lib/data/precinct_polling_places.json';
 import type { ElectionMap, ElectionPayload } from '$lib/types/election';
@@ -29,13 +30,14 @@ function normalizeElectionData(payload: ElectionPayload): ElectionMap {
 export const load: PageLoad = async ({ params, url, fetch }) => {
   const voterID = params.id;
   const electionID = url.searchParams.get('electionID') ?? '';
+  const apiBase = `${base}/api`;
 
   if (!voterID) throw error(400, 'Missing voterID');
   if (!electionID) throw error(400, 'Missing electionID');
 
   const [settingsRes, statusRes] = await Promise.all([
-    fetch('/api/proxy-admin-settings'),
-    fetch('/api/proxy-election-data')
+    fetch(`${apiBase}/proxy-admin-settings`),
+    fetch(`${apiBase}/proxy-election-data`)
   ]);
 
   if (!settingsRes.ok) throw error(500, `Failed to load settings: ${settingsRes.status}`);
@@ -55,7 +57,7 @@ export const load: PageLoad = async ({ params, url, fetch }) => {
     isPrimary = Boolean(rawStatus[electionID].IsPrimary);
   }
 
-  const voterRes = await fetch('/api/voter-details', {
+  const voterRes = await fetch(`${apiBase}/voter-details`, {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify({ voterID, electionID, isPrimary, debug: import.meta.env.DEV })
